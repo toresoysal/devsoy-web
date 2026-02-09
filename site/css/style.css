@@ -2,29 +2,36 @@
 body {
     font-family: 'Montserrat', sans-serif;
     color: #000000;
-    padding-top: 76px; /* Navbar yüksekliği için */
+    padding-top: 76px;
+    line-height: 1.6;
 }
 
 /* Navbar Stilleri */
 .navbar {
     background-color: #000000 !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
 }
 
-.navbar-brand img {
-    height: 60px;
+.navbar-brand {
+    padding: 0.25rem 0;
+}
+
+.logo-img {
+    height: 55px;
+    width: auto;
     border-radius: 50%;
-    max-width: 100%;
     transition: transform 0.3s ease;
+    object-fit: cover;
 }
 
-.navbar-brand img:hover {
+.logo-img:hover {
     transform: scale(1.05);
 }
 
 .nav-link {
     color: #D4A017 !important;
-    font-weight: bold;
+    font-weight: 500;
     transition: color 0.3s ease;
     padding: 0.5rem 1rem !important;
 }
@@ -43,33 +50,81 @@ body {
 }
 
 /* Carousel Stilleri */
-.carousel-item img {
-    max-height: 600px;
-    object-fit: cover;
+.carousel {
+    height: 100vh;
+    min-height: 600px;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.carousel-item {
+    height: 100%;
+}
+
+.carousel-image-wrapper {
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-image {
+    height: 100%;
     width: 100%;
+    object-fit: cover;
+    object-position: center center;
 }
 
 .carousel-caption {
     background: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 15px;
     backdrop-filter: blur(5px);
+    bottom: 15%;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
 }
 
 .carousel-caption h1 {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 15px;
+    color: white;
 }
 
 .carousel-caption p {
     font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Hizmetler Bölümü */
 .services {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     min-height: 600px;
+}
+
+.section-title {
+    color: #D4A017;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 15px;
+    font-size: 2.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #D4A017, #f1c40f);
+    border-radius: 2px;
 }
 
 .service-card {
@@ -91,6 +146,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.4s ease;
 }
 
@@ -103,10 +159,10 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    padding: 30px 20px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    padding: 40px 30px 30px;
     text-align: center;
-    transform: translateY(100%);
+    transform: translateY(70%);
     transition: transform 0.4s ease;
 }
 
@@ -135,21 +191,41 @@ body {
 /* Sosyal Medya */
 .social {
     background-color: #f8f9fa;
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
 .social-icon {
-    height: 80px;
-    width: 80px;
+    height: 100px;
+    width: 100px;
     object-fit: cover;
     border-radius: 15px;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+.social-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.social-link h5 {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
 .social-link:hover .social-icon {
     transform: scale(1.1) rotate(5deg);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.social-link:hover h5 {
+    color: #D4A017;
+}
+
+.social-link-footer:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 /* İletişim */
@@ -169,25 +245,37 @@ body {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    height: 100%;
 }
 
-.contact-info p {
-    color: #2c3e50;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+.contact-item {
+    display: flex;
+    align-items: center;
     padding: 10px 0;
     border-bottom: 1px solid #ecf0f1;
+    color: #2c3e50;
+    font-size: 1rem;
 }
 
-.contact-info p:last-child {
+.contact-item:last-child {
     border-bottom: none;
 }
 
-.contact-info strong {
+.contact-item a {
     color: #D4A017;
-    display: inline-block;
-    width: 80px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #b8860b;
+}
+
+.contact-form-wrapper {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 /* Form Stilleri */
@@ -202,6 +290,7 @@ body {
 .form-control:focus {
     border-color: #D4A017;
     box-shadow: 0 0 0 0.2rem rgba(212, 160, 23, 0.25);
+    outline: none;
 }
 
 /* Footer */
@@ -216,18 +305,212 @@ footer p {
     color: #D4A017;
 }
 
+/* KKTC'de Yaşam Görsel Stilleri */
+.hero-image, .city-image, .nature-image, .activity-image, .cuisine-image, .cost-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.city-image { 
+    float: left; 
+    margin-right: 20px; 
+}
+
+.nature-image, .cost-image { 
+    display: block; 
+    margin: 20px auto; 
+}
+
+.hero { 
+    padding: 40px 0; 
+    text-align: center; 
+}
+
+.city-card, .general-info, .nature, .activities, .cuisine, .living-costs, .why-live {
+    padding: 20px;
+    margin: 20px 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Hakkımızda Sayfası İçin Ek Stiller */
+.hero {
+    padding: 100px 0 80px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.hero-image {
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* General Info Section */
+.general-info {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+}
+
+.content-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.highlight-box {
+    background: rgba(212, 160, 23, 0.2);
+    border-left: 4px solid #D4A017;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Services Detail Section */
+.services-detail {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ecf0f1 0%, #d5dbdb 100%);
+}
+
+.service-detail-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-top: 4px solid #D4A017;
+    height: 100%;
+}
+
+.service-detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: #D4A017;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.service-detail-card h3 {
+    color: #2c3e50;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.feature-list h5 {
+    color: #D4A017;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.permit-types {
+    margin-top: 20px;
+}
+
+.permit-types h5 {
+    color: #2c3e50;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.permit-types ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.permit-types li {
+    padding: 5px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.permit-types li::before {
+    content: '•';
+    color: #D4A017;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* Contact Info Section */
+.contact-info-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.contact-card h2 {
+    color: #D4A017;
+    font-weight: bold;
+}
+
+.contact-item {
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: #D4A017;
+    margin-bottom: 15px;
+}
+
+.contact-item h5 {
+    color: #2c3e50;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contact-item a {
+    color: #34495e;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #D4A017;
+}
+
 /* Responsive Tasarım */
 @media (max-width: 768px) {
     body {
         padding-top: 70px;
     }
     
-    .carousel-item img {
-        max-height: 300px;
+    .carousel {
+        height: 70vh;
+        min-height: 500px;
     }
     
     .carousel-caption {
-        padding: 15px;
+        padding: 20px;
+        bottom: 10%;
+        width: 90%;
     }
     
     .carousel-caption h1 {
@@ -238,8 +521,8 @@ footer p {
         font-size: 1rem;
     }
     
-    .navbar-brand img {
-        height: 50px;
+    .logo-img {
+        height: 45px;
     }
     
     .service-card {
@@ -249,32 +532,70 @@ footer p {
     
     .service-overlay {
         transform: translateY(0);
-        background: rgba(0,0,0,0.7);
+        background: rgba(0,0,0,0.8);
+        padding: 30px 20px 20px;
     }
     
     .social-icon {
-        height: 60px;
-        width: 60px;
+        height: 80px;
+        width: 80px;
     }
     
-    .contact-info {
+    .contact-info, .contact-form-wrapper {
         margin-bottom: 30px;
     }
     
     .services {
-        padding: 40px 0;
+        padding: 60px 0;
     }
     
     .contact {
-        padding: 40px 0;
+        padding: 60px 0;
     }
     
     .social {
-        padding: 40px 0;
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero {
+        padding: 80px 0 60px;
+    }
+    
+    .hero-image {
+        max-height: 250px;
+        margin-bottom: 30px;
+    }
+    
+    .general-info,
+    .services-detail,
+    .contact-info-section {
+        padding: 60px 0;
+    }
+    
+    .service-detail-card {
+        padding: 30px 20px;
+        margin-bottom: 30px;
+    }
+    
+    .contact-card {
+        padding: 40px 20px;
+    }
+    
+    .service-icon {
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 576px) {
+    .carousel {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
     .carousel-caption h1 {
         font-size: 1.5rem;
     }
@@ -288,13 +609,17 @@ footer p {
     }
     
     .social-icon {
-        height: 50px;
-        width: 50px;
+        height: 70px;
+        width: 70px;
     }
     
     .btn-primary {
         padding: 10px 25px;
         font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
     }
 }
 
@@ -330,4 +655,80 @@ footer p {
 
 .contact {
     animation-delay: 0.6s;
+}
+
+.general-info,
+.services-detail,
+.contact-info-section {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.services-detail {
+    animation-delay: 0.2s;
+}
+
+.contact-info-section {
+    animation-delay: 0.4s;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #D4A017, #f1c40f);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.back-to-top:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Custom Alert */
+.custom-alert {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Text Utilities */
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.text-white-75 {
+    color: rgba(255, 255, 255, 0.75) !important;
 }

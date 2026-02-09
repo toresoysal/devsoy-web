@@ -3,163 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dev-Soy: Evrak takip ve personel tedarik hizmetlerinde güvenilir çözümler.">
-    <meta name="keywords" content="evrak takip, personel tedarik, Dev-Soy, KKTC, iş hizmetleri">
-    <title>Dev-Soy | Güvenilir Çözüm Ortağınız</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="description" content="Dev/Soy Danışmanlık, KKTC'de evrak takip ve personel tedarik hizmetlerinde uzman. Güvenilir çözümler için yanınızdayız.">
+    <meta name="keywords" content="Dev/Soy Danışmanlık, KKTC danışmanlık, personel tedarik, evrak takip, KKTC'de yaşam">
+    <meta name="author" content="Dev/Soy Danışmanlık">
+    <title>Dev/Soy Danışmanlık - Güvenilir Çözüm Ortağınız</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-dark fixed-top">
-        <div class="container">
-            <!-- Desktop Navigation -->
-            <div class="d-none d-lg-flex navbar-nav w-100 justify-content-between align-items-center">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link text-white" href="pages/hakkimizda.html">Hakkımızda</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#sosyal-medya">Sosyal Medya</a></li>
-                </ul>
-                <a class="navbar-brand mx-auto" href="#"><img src="images/logo.png" alt="Dev-Soy Logo" style="height: 60px; border-radius: 50%;"></a>
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link text-white" href="pages/kktc-yasam.html">KKTC'de Yaşam</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#iletisim">İletişim</a></li>
-                </ul>
-            </div>
-
-            <!-- Mobile Navigation -->
-            <div class="d-lg-none w-100 d-flex justify-content-between align-items-center">
-                <a class="navbar-brand" href="#"><img src="images/logo.png" alt="Dev-Soy Logo" style="height: 50px; border-radius: 50%;"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="images/devsoy-logo.png" alt="Dev/Soy Logo" class="logo-img">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-            </div>
-
-            <div class="collapse navbar-collapse d-lg-none" id="navbarNav">
-                <ul class="navbar-nav mx-auto text-center mt-3">
-                    <li class="nav-item"><a class="nav-link text-white" href="pages/hakkimizda.html">Hakkımızda</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#sosyal-medya">Sosyal Medya</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="pages/kktc-yasam.html">KKTC'de Yaşam</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#iletisim">İletişim</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Carousel -->
-    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-top: 76px;">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="images/hero-slide-1.jpg" class="d-block w-100" alt="Dev-Soy Hero 1">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1 style="color: #D4A017;">Dev-Soy Güvenilir Çözüm Ortağınız</h1>
-                    <p style="color: #FFFFFF;">Evrak takip ve personel tedarik hizmetlerinde profesyonel destek.</p>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#anasayfa">Ana Sayfa</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/pages_hakkimizda.html">Hakkımızda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#hizmetler">Hizmetler</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#sosyal-medya">Sosyal Medya</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/pages_kktc-yasam.html">KKTC'de Yaşam</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img src="images/hero-slide-2.jpg" class="d-block w-100" alt="Dev-Soy Hero 2">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1 style="color: #D4A017;">Hızlı Evrak Takip</h1>
-                    <p style="color: #FFFFFF;">Güvenilir ve hızlı çözümler sunuyoruz.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="images/hero-slide-3.jpg" class="d-block w-100" alt="Dev-Soy Hero 3">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1 style="color: #D4A017;">Profesyonel Personel Tedarik</h1>
-                    <p style="color: #FFFFFF;">İhtiyacınıza özel ekipler oluşturuyoruz.</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Önceki</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Sonraki</span>
-        </button>
-    </div>
+        </nav>
+    </header>
 
-    <!-- Hizmetler Section -->
-    <section id="hizmetler" class="services py-5">
-        <div class="container">
-            <h2 class="text-center mb-5 text-white">Hizmetlerimiz</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="service-card">
-                        <img src="images/evraktakip.png" class="service-image" alt="Evrak Takip Hizmeti">
-                        <div class="service-overlay">
-                            <a href="pages/evrak-detay.html" class="btn btn-primary">Detaylı İncele</a>
-                        </div>
+    <main>
+        <section id="anasayfa" class="carousel slide" id="mainCarousel" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="carousel-image-wrapper">
+                        <img src="images/carousel1.jpg" class="d-block w-100 carousel-image" alt="Dev-Soy Hizmetleri">
+                    </div>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Dev/Soy Güvenilir Çözüm Ortağınız</h1>
+                        <p>Evrak takip ve personel tedarik hizmetlerinde profesyonel destek.</p>
+                        <a href="#hizmetler" class="btn btn-primary btn-lg mt-3">Hizmetlerimizi İnceleyin</a>
                     </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="service-card">
-                        <img src="images/personeltedarik.jpg" class="service-image" alt="Personel Tedarik Hizmeti">
-                        <div class="service-overlay">
-                            <a href="pages/personel-detay.html" class="btn btn-primary">Detaylı İncele</a>
-                        </div>
+                <div class="carousel-item">
+                    <div class="carousel-image-wrapper">
+                        <img src="images/carousel2.jpg" class="d-block w-100 carousel-image" alt="Evrak Takip">
+                    </div>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Hızlı Evrak Takip</h1>
+                        <p>Güvenilir ve hızlı çözümler sunuyoruz.</p>
+                        <a href="pages/evrak-takip.html" class="btn btn-primary btn-lg mt-3">Detayları İnceleyin</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-image-wrapper">
+                        <img src="images/carousel3.jpg" class="d-block w-100 carousel-image" alt="Personel Tedarik">
+                    </div>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Profesyonel Personel Tedarik</h1>
+                        <p>İhtiyacınıza özel ekipler oluşturuyoruz.</p>
+                        <a href="pages/personel-tedarik.html" class="btn btn-primary btn-lg mt-3">Detayları İnceleyin</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Önceki</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Sonraki</span>
+            </button>
+        </section>
 
-    <!-- Sosyal Medya Section -->
-    <section id="sosyal-medya" class="social py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-4">Sosyal Medya</h2>
-            <div class="row justify-content-center">
-                <div class="col-6 col-md-3 text-center">
-                    <a href="https://www.facebook.com/people/DevSoy-Danışmanlık/61577918402689/" target="_blank" class="social-link">
-                        <img src="images/facebook.png" alt="Facebook" class="social-icon">
-                    </a>
-                </div>
-                <div class="col-6 col-md-3 text-center">
-                    <a href="https://www.instagram.com/devsoy.consultancy/" target="_blank" class="social-link">
-                        <img src="images/instagram.jpg" alt="Instagram" class="social-icon">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- İletişim Section -->
-    <section id="iletisim" class="contact py-5">
-        <div class="container">
-            <h2 class="text-center mb-4" style="color: #D4A017;">İletişim</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="contact-info">
-                        <p><strong>Adres:</strong> İkinci Selim Cad. Köşklü Çiftlik LEFKOŞA 99010</p>
-                        <p><strong>E-posta:</strong> devsoyconsultancy@gmail.com</p>
-                        <p><strong>Telefon:</strong> +90 539 108 49 79</p>
+        <section id="hizmetler" class="services py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="section-title text-white">Hizmetlerimiz</h2>
+                        <p class="text-white-50 lead">KKTC'de güvenilir danışmanlık hizmetleri</p>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <form id="contactForm">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="name" placeholder="Adınız" required>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="service-card">
+                            <img src="images/service1.jpg" alt="Evrak Takip Hizmeti" class="service-image">
+                            <div class="service-overlay">
+                                <h3 class="text-white mb-3">Evrak Takip</h3>
+                                <p class="text-white-75 mb-4">KKTC'de tüm resmi evrak işlemlerinizi profesyonelce takip ediyoruz.</p>
+                                <a href="pages/evrak-takip.html" class="btn btn-primary">Detaylı İncele</a>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" id="email" placeholder="E-posta" required>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="service-card">
+                            <img src="images/service2.jpg" alt="Personel Tedarik Hizmeti" class="service-image">
+                            <div class="service-overlay">
+                                <h3 class="text-white mb-3">Personel Tedarik</h3>
+                                <p class="text-white-75 mb-4">Uluslararası kaynaklardan nitelikli personel temin ediyoruz.</p>
+                                <a href="pages/personel-tedarik.html" class="btn btn-primary">Detaylı İncele</a>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" id="message" placeholder="Mesajınız" rows="5" required></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sosyal-medya" class="social py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="section-title">Sosyal Medya</h2>
+                        <p class="lead text-muted">Bizi sosyal medyadan takip edin</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center g-4">
+                    <div class="col-md-3 col-6 text-center">
+                        <a href="https://facebook.com/devsoyconsultancy" class="social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="images/facebook.jpg" alt="Facebook" class="social-icon">
+                            <h5 class="mt-3">Facebook</h5>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-6 text-center">
+                        <a href="https://instagram.com/devsoyconsultancy" class="social-link" target="_blank" rel="noopener noreferrer">
+                            <img src="images/instagram.jpg" alt="Instagram" class="social-icon">
+                            <h5 class="mt-3">Instagram</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="iletisim" class="contact py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5">
+                        <h2 class="section-title">İletişim</h2>
+                        <p class="lead text-muted">Bizimle iletişime geçin</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="contact-info h-100">
+                            <h4 class="mb-4">İletişim Bilgileri</h4>
+                            <div class="contact-item mb-3">
+                                <i class="fas fa-map-marker-alt text-warning me-3"></i>
+                                <strong>Adres:</strong> İkinci Selim Cad. Köşklü Çiftlik LEFKOŞA 99010
+                            </div>
+                            <div class="contact-item mb-3">
+                                <i class="fas fa-envelope text-warning me-3"></i>
+                                <strong>E-posta:</strong> 
+                                <a href="mailto:devsoyconsultancy@gmail.com">devsoyconsultancy@gmail.com</a>
+                            </div>
+                            <div class="contact-item mb-3">
+                                <i class="fas fa-phone text-warning me-3"></i>
+                                <strong>Telefon:</strong> 
+                                <a href="tel:+905391084979">+90 539 108 49 79</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-globe text-warning me-3"></i>
+                                <strong>Web:</strong> 
+                                <a href="https://devsoy.online" target="_blank">devsoy.online</a>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Gönder</button>
-                    </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-form-wrapper">
+                            <h4 class="mb-4">Mesaj Gönderin</h4>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="name" placeholder="Adınız" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" id="email" placeholder="E-posta Adresiniz" required>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" id="message" rows="4" placeholder="Mesajınız" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Mesajı Gönder</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p class="mb-0">© 2025 Dev/Soy Danışmanlık. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <div class="d-flex justify-content-md-end justify-content-center gap-3 mt-3 mt-md-0">
+                        <a href="https://facebook.com/devsoyconsultancy" class="social-link-footer" target="_blank">
+                            <img src="images/facebook.jpg" alt="Facebook" style="width: 32px; height: 32px; border-radius: 8px;">
+                        </a>
+                        <a href="https://instagram.com/devsoyconsultancy" class="social-link-footer" target="_blank">
+                            <img src="images/instagram.jpg" alt="Instagram" style="width: 32px; height: 32px; border-radius: 8px;">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2026 Dev-Soy. Tüm hakları saklıdır.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
