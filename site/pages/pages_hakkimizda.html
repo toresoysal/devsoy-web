@@ -3,27 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dev/Soy Danışmanlık, 2025'te kuruldu. Eğitim, gıda ve turizmde 20+ yıllık tecrübeyle personel tedarik ve evrak takip hizmetleri sunar.">
-    <meta name="keywords" content="Dev/Soy Danışmanlık, KKTC personel tedarik, evrak takip, ikamet izinleri, güvenilir danışmanlık, devsoy.online">
+    <meta name="description" content="Dev/Soy Danışmanlık hakkında. 20+ yıllık tecrübeyle KKTC'de personel tedarik, evrak takip, casino turizmi ve eğitim danışmanlığı hizmetleri.">
+    <meta name="keywords" content="Dev/Soy Danışmanlık, hakkımızda, KKTC danışmanlık, E. Töre Soysal, Alican Deveci, personel tedarik, evrak takip">
     <title>Hakkımızda - Dev/Soy Danışmanlık</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="../index.html"><img src="../images/devsoy-logo.png" alt="Dev/Soy Logo"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                    <img src="../images/devsoy-logo.png" alt="Dev/Soy Logo" class="logo-img">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Menüyü Aç/Kapat">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="../index.html">Ana Sayfa</a></li>
-                        <li class="nav-item"><a class="nav-link" href="pages_hakkimizda.html">Hakkımızda</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Sosyal Medya</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="pages_hakkimizda.html">Hakkımızda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="evrak_takip_page.html">Evrak Takip</a></li>
+                        <li class="nav-item"><a class="nav-link" href="personel_tedarik_page.html">Personel Tedarik</a></li>
                         <li class="nav-item"><a class="nav-link" href="pages_kktc-yasam.html">KKTC'de Yaşam</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">İletişim</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html#iletisim">İletişim</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,31 +36,44 @@
     </header>
 
     <main>
-        <section class="hero">
+        <!-- Hero Section -->
+        <section class="hero" style="background: linear-gradient(135deg, var(--black) 0%, var(--dark) 100%); padding: 100px 0 60px;">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <img src="../images/devsoy-office.jpg" alt="Dev/Soy Danışmanlık Ofisi" class="hero-image img-fluid rounded shadow">
+                    <div class="col-lg-6 mb-4 mb-lg-0 animate-on-scroll">
+                        <img src="../images/ofis.jpeg" alt="Dev/Soy Danışmanlık Ofisi" class="img-fluid rounded" style="box-shadow: var(--shadow-lg); border: 3px solid var(--gold);">
                     </div>
-                    <div class="col-md-6">
-                        <h1 class="display-4 text-primary mb-3">Dev/Soy Danışmanlık</h1>
-                        <h2 class="h4 text-secondary mb-4">Güvenilir Çözüm Ortağınız</h2>
-                        <p class="lead">2025 yılında kurulan Dev/Soy Danışmanlık, KKTC'de profesyonel danışmanlık hizmetleri sunan güvenilir çözüm ortağınızdır.</p>
+                    <div class="col-lg-6 animate-on-scroll">
+                        <h1 style="color: var(--gold); font-weight: 700; font-size: 2.5rem;">Dev/Soy Danışmanlık</h1>
+                        <h2 class="text-white mb-4" style="font-size: 1.3rem; font-weight: 400;">Güvenilir Çözüm Ortağınız</h2>
+                        <p class="text-white-50" style="font-size: 1.1rem; line-height: 1.8;">2025 yılında Kuzey Kıbrıs Türk Cumhuriyeti'nde kurulan Dev/Soy Danışmanlık, kurucularının eğitim, gıda ve turizm sektörlerinde <strong class="text-white">20 yılı aşkın tecrübesiyle</strong> işletmelere ve bireylere profesyonel danışmanlık hizmetleri sunmaktadır.</p>
+                        <div class="mt-4">
+                            <a href="../index.html#iletisim" class="btn btn-primary btn-lg me-3">
+                                <i class="fas fa-envelope me-2"></i>İletişime Geçin
+                            </a>
+                            <a href="#hizmetler" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-arrow-down me-2"></i>Hizmetler
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="general-info">
+        <!-- Biz Kimiz -->
+        <section class="py-5" style="background: var(--gray-light);">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
-                        <h2 class="section-title text-center mb-5">Biz Kimiz?</h2>
-                        <div class="content-card mb-4">
-                            <p class="lead">Dev/Soy Danışmanlık, 2025 yılında Kuzey Kıbrıs Türk Cumhuriyeti'nde kurulmuştur. Kurucularımızın eğitim, gıda ve turizm sektörlerinde 20 yılı aşkın tecrübesiyle, işletmelere ve bireylere profesyonel danışmanlık hizmetleri sunmayı hedefliyoruz.</p>
-                            
-                            <div class="highlight-box">
-                                <p><strong>Amacımız:</strong> Personel tedariki ve evrak takip süreçlerinizi kolaylaştırarak sizin işinize odaklanmanızı sağlamak ve güvenilir bir çözüm ortağı olmaktır.</p>
+                    <div class="col-12 text-center mb-5 animate-on-scroll">
+                        <h2 class="section-title">Biz Kimiz?</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 mx-auto animate-on-scroll">
+                        <div class="content-card" style="border-left: 4px solid var(--gold);">
+                            <p class="lead mb-4">Dev/Soy Danışmanlık, 2025 yılında Kuzey Kıbrıs Türk Cumhuriyeti'nde kurulmuştur. Kurucularımızın eğitim, gıda ve turizm sektörlerinde 20 yılı aşkın tecrübesiyle, işletmelere ve bireylere profesyonel danışmanlık hizmetleri sunmayı hedefliyoruz.</p>
+                            <div style="background: rgba(212, 160, 23, 0.1); padding: 1.5rem; border-radius: var(--radius-md);">
+                                <p class="mb-0" style="font-size: 1.1rem;"><strong><i class="fas fa-bullseye text-warning me-2"></i>Amacımız:</strong> Personel tedariki ve evrak takip süreçlerinizi kolaylaştırarak sizin işinize odaklanmanızı sağlamak ve güvenilir bir çözüm ortağı olmaktır.</p>
                             </div>
                         </div>
                     </div>
@@ -63,58 +81,93 @@
             </div>
         </section>
 
-        <section class="services-detail">
+        <!-- Hizmet Alanları -->
+        <section id="hizmetler" class="services py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="service-detail-card h-100">
-                            <div class="service-icon">
-                                <i class="fas fa-users"></i>
+                    <div class="col-12 text-center mb-5 animate-on-scroll">
+                        <h2 class="section-title text-white">Hizmet Alanlarımız</h2>
+                        <p class="text-white-50 lead">4 ana alanda profesyonel danışmanlık</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <!-- Personel Tedariki -->
+                    <div class="col-md-6 animate-on-scroll">
+                        <div class="about-card h-100">
+                            <div class="mb-3">
+                                <i class="fas fa-users" style="font-size: 2.5rem; color: var(--gold);"></i>
                             </div>
                             <h3>1. Personel Tedariki</h3>
                             <p>KKTC'deki işletmelere <strong>Bangladeş, Nepal, Türkmenistan, Pakistan, İran, Filipinler ve Sri Lanka</strong> gibi ülkelerden nitelikli iş gücü sağlıyoruz.</p>
-                            
                             <p>Resmi acentalar aracılığıyla uzman ekibimiz, firmanıza en uygun profesyonel personeli hızlı bir şekilde temin eder ve süreçleri sizin adınıza yönetir.</p>
-                            
-                            <div class="feature-list">
-                                <h5>✓ Neden Biz?</h5>
-                                <p>Hızlı, güvenilir ve ihtiyaca özel personel seçimi.</p>
-                                
-                                <h5>✓ Ne Sunuyoruz?</h5>
-                                <p>Teknik ve yetkin personel için uluslararası bağlantılarımızla kesintisiz destek.</p>
+                            <div style="background: rgba(212, 160, 23, 0.1); padding: 1rem; border-radius: var(--radius-sm); margin-top: 1rem;">
+                                <p class="mb-1"><strong><i class="fas fa-check-circle text-warning me-2"></i>Neden Biz?</strong> Hızlı, güvenilir ve ihtiyaca özel personel seçimi.</p>
+                                <p class="mb-0"><strong><i class="fas fa-check-circle text-warning me-2"></i>Ne Sunuyoruz?</strong> Teknik ve yetkin personel için uluslararası bağlantılarımızla kesintisiz destek.</p>
+                            </div>
+                            <div class="mt-3">
+                                <a href="personel_tedarik_page.html" class="btn btn-primary btn-sm">Detaylı İncele <i class="fas fa-arrow-right ms-1"></i></a>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col-md-6 mb-4">
-                        <div class="service-detail-card h-100">
-                            <div class="service-icon">
-                                <i class="fas fa-file-alt"></i>
+
+                    <!-- Evrak Takip -->
+                    <div class="col-md-6 animate-on-scroll">
+                        <div class="about-card h-100">
+                            <div class="mb-3">
+                                <i class="fas fa-file-alt" style="font-size: 2.5rem; color: var(--gold);"></i>
                             </div>
                             <h3>2. Evrak Takip ve Başvuru Hizmetleri</h3>
                             <p>KKTC'de bürokratik süreçleri sizin için basitleştiriyoruz. Çalışma izni, oturma izni, beyaz kimlik ve vatandaşlık başvurularında profesyonel destek sunuyoruz.</p>
-                            
-                            <div class="permit-types">
-                                <h5>Daimi İkamet İzinleri:</h5>
-                                <ul>
-                                    <li>Çalışma/iş kurma yoluyla</li>
-                                    <li>Evlilik yoluyla</li>
-                                    <li>Doğum/reşitlik yoluyla</li>
-                                </ul>
-                                
-                                <h5>Ziyaretçi İzinleri:</h5>
-                                <ul>
-                                    <li>Çocuklar için</li>
-                                    <li>Dul anne/baba</li>
-                                    <li>Ev alım</li>
-                                    <li>Öğrenci anne/baba</li>
-                                    <li>Eş refakat</li>
-                                </ul>
+                            <div class="row mt-3">
+                                <div class="col-sm-6">
+                                    <h6 style="color: var(--gold);"><i class="fas fa-id-card me-1"></i> Daimi İkamet İzinleri:</h6>
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-success me-1"></i>Çalışma/iş kurma yoluyla</li>
+                                        <li><i class="fas fa-check text-success me-1"></i>Evlilik yoluyla</li>
+                                        <li><i class="fas fa-check text-success me-1"></i>Doğum/reşitlik yoluyla</li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h6 style="color: var(--gold);"><i class="fas fa-passport me-1"></i> Ziyaretçi İzinleri:</h6>
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-success me-1"></i>Çocuklar için</li>
+                                        <li><i class="fas fa-check text-success me-1"></i>Dul anne/baba</li>
+                                        <li><i class="fas fa-check text-success me-1"></i>Ev alım / Öğrenci anne/baba</li>
+                                    </ul>
+                                </div>
                             </div>
-                            
-                            <div class="feature-list">
-                                <h5>✓ Neden Biz?</h5>
-                                <p>Size özel takip ve uzman ekibimizle sorunsuz süreç yönetimi.</p>
+                            <div class="mt-3">
+                                <a href="evrak_takip_page.html" class="btn btn-primary btn-sm">Detaylı İncele <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Casino Turizmi -->
+                    <div class="col-md-6 animate-on-scroll">
+                        <div class="about-card h-100">
+                            <div class="mb-3">
+                                <i class="fas fa-dice" style="font-size: 2.5rem; color: var(--gold);"></i>
+                            </div>
+                            <h3>3. Casino Turizmi Danışmanlığı</h3>
+                            <p>KKTC'nin en dinamik sektörlerinden biri olan casino turizminde, işletmelere stratejik danışmanlık ve personel çözümleri sunuyoruz.</p>
+                            <p>Turizm ve eğlence sektöründeki deneyimimizle, casino işletmelerine nitelikli personel temini ve operasyonel destek sağlıyoruz.</p>
+                            <div style="background: rgba(212, 160, 23, 0.1); padding: 1rem; border-radius: var(--radius-sm); margin-top: 1rem;">
+                                <p class="mb-0"><strong><i class="fas fa-check-circle text-warning me-2"></i>Neden Biz?</strong> Sektöre özel uzman kadro ve hızlı çözüm odaklı yaklaşım.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Eğitim Danışmanlığı -->
+                    <div class="col-md-6 animate-on-scroll">
+                        <div class="about-card h-100">
+                            <div class="mb-3">
+                                <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: var(--gold);"></i>
+                            </div>
+                            <h3>4. Eğitim Danışmanlığı</h3>
+                            <p>KKTC'deki üniversitelerde eğitim almak isteyenler için kapsamlı danışmanlık hizmetleri sunuyoruz. Öğrenci vizesi, kayıt işlemleri ve yaşam desteği.</p>
+                            <p>Eğitim sektöründeki derin tecrübemizle, öğrencilerin KKTC'deki eğitim süreçlerini sorunsuz hale getiriyoruz.</p>
+                            <div style="background: rgba(212, 160, 23, 0.1); padding: 1rem; border-radius: var(--radius-sm); margin-top: 1rem;">
+                                <p class="mb-0"><strong><i class="fas fa-check-circle text-warning me-2"></i>Neden Biz?</strong> Üniversitelerle doğrudan bağlantı ve uçtan uca eğitim desteği.</p>
                             </div>
                         </div>
                     </div>
@@ -122,39 +175,77 @@
             </div>
         </section>
 
-        <section class="contact-info-section">
+        <!-- Yönetim Kadrosu -->
+        <section class="py-5" style="background: var(--gray-light);">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 text-center mb-5 animate-on-scroll">
+                        <h2 class="section-title">Yönetim Kadrosu</h2>
+                        <p class="lead text-muted">Deneyimli ekibimizle yanınızdayız</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center g-4">
+                    <div class="col-md-5 animate-on-scroll">
+                        <div class="content-card text-center h-100">
+                            <div class="mb-3">
+                                <i class="fas fa-user-tie" style="font-size: 3rem; color: var(--gold);"></i>
+                            </div>
+                            <h4>E. Töre Soysal</h4>
+                            <p style="color: var(--gold); font-weight: 600;">Kurucu Ortak &amp; Yönetici</p>
+                            <p class="text-muted">Eğitim, gıda ve turizm sektörlerinde 20+ yıllık deneyim. Dev/Soy Danışmanlık'ın vizyoner lideri.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-5 animate-on-scroll">
+                        <div class="content-card text-center h-100">
+                            <div class="mb-3">
+                                <i class="fas fa-user-tie" style="font-size: 3rem; color: var(--gold);"></i>
+                            </div>
+                            <h4>Alican Deveci</h4>
+                            <p style="color: var(--gold); font-weight: 600;">Kurucu Ortak</p>
+                            <p class="text-muted">Operasyonel yönetim ve müşteri ilişkilerinde uzman. Dev/Soy'un stratejik güç ortağı.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- İletişim CTA -->
+        <section class="contact-info-section py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 animate-on-scroll">
                         <div class="contact-card text-center">
-                            <h2 class="mb-4">İletişime Geçin</h2>
+                            <h2 class="mb-4">Birlikte Çalışalım</h2>
                             <p class="mb-4">Sizinle iş birliği yaparak ihtiyaçlarınıza çözüm sunmayı dört gözle bekliyoruz!</p>
-                            
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-4">
                                     <div class="contact-item">
                                         <i class="fas fa-envelope"></i>
                                         <h5>E-posta</h5>
                                         <a href="mailto:devsoyconsultancy@gmail.com">devsoyconsultancy@gmail.com</a>
                                     </div>
                                 </div>
-                                
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4">
                                     <div class="contact-item">
                                         <i class="fas fa-phone"></i>
                                         <h5>Telefon</h5>
-                                        <a href="tel:+905338416990">+90 533 841 69 90</a>
+                                        <a href="tel:+905391084979">+90 539 108 49 79</a>
                                     </div>
                                 </div>
-                                
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4">
                                     <div class="contact-item">
-                                        <i class="fas fa-globe"></i>
-                                        <h5>Web Sitesi</h5>
-                                        <a href="https://devsoy.online" target="_blank">devsoy.online</a>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <h5>Adres</h5>
+                                        <p class="mb-0">İkinci Selim Cad. Köşklü Çiftlik<br>LEFKOŞA 99010</p>
                                     </div>
                                 </div>
                             </div>
+                            <a href="../index.html#iletisim" class="btn btn-primary btn-lg me-2">
+                                <i class="fas fa-paper-plane me-2"></i>Mesaj Gönderin
+                            </a>
+                            <a href="tel:+905391084979" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-phone me-2"></i>Hemen Arayın
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -162,19 +253,19 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="bg-dark text-light py-4">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-8">
-                    <p>© 2026 Dev/Soy Danışmanlık. Tüm hakları saklıdır.</p>
+                    <p class="mb-0">&copy; 2026 Dev/Soy Danışmanlık. Tüm hakları saklıdır.</p>
                 </div>
                 <div class="col-md-4 text-md-end">
-                    <div class="social-links">
-                        <a href="https://facebook.com/devsoyconsultancy" class="social-link">
-                            <img src="../images/facebook.png" alt="Facebook" class="social-icon">
+                    <div class="d-flex justify-content-md-end justify-content-center gap-3 mt-3 mt-md-0">
+                        <a href="https://facebook.com/devsoyconsultancy" target="_blank" rel="noopener noreferrer">
+                            <img src="../images/facebook.png" alt="Facebook" style="width: 32px; height: 32px; border-radius: 8px;">
                         </a>
-                        <a href="https://instagram.com/devsoyconsultancy" class="social-link">
-                            <img src="../images/instagram.jpg" alt="Instagram" class="social-icon">
+                        <a href="https://instagram.com/devsoyconsultancy" target="_blank" rel="noopener noreferrer">
+                            <img src="../images/instagram.jpg" alt="Instagram" style="width: 32px; height: 32px; border-radius: 8px;">
                         </a>
                     </div>
                 </div>
@@ -184,6 +275,5 @@
 
     <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/your-kit-id.js"></script>
 </body>
 </html>

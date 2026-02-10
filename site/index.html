@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dev/Soy Danışmanlık, KKTC'de evrak takip ve personel tedarik hizmetlerinde uzman. Güvenilir çözümler için yanınızdayız.">
-    <meta name="keywords" content="Dev/Soy Danışmanlık, KKTC danışmanlık, personel tedarik, evrak takip, KKTC'de yaşam">
+    <meta name="description" content="Dev/Soy Danışmanlık, KKTC'de evrak takip, personel tedarik, casino turizmi ve eğitim danışmanlığı hizmetlerinde 20+ yıllık tecrübe. Güvenilir çözüm ortağınız.">
+    <meta name="keywords" content="Dev/Soy Danışmanlık, KKTC danışmanlık, personel tedarik, evrak takip, çalışma izni, oturma izni, casino turizmi, eğitim danışmanlığı, devsoy.online">
     <meta name="author" content="Dev/Soy Danışmanlık">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Dev/Soy Danışmanlık - Güvenilir Çözüm Ortağınız">
+    <meta property="og:description" content="KKTC'de evrak takip, personel tedarik ve danışmanlık hizmetleri. 20+ yıllık tecrübe.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devsoy.online">
     <title>Dev/Soy Danışmanlık - Güvenilir Çözüm Ortağınız</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
     <header>
@@ -18,12 +24,12 @@
                 <a class="navbar-brand d-flex align-items-center" href="index.html">
                     <img src="images/devsoy-logo.png" alt="Dev/Soy Logo" class="logo-img">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Menüyü Aç/Kapat">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#anasayfa">Ana Sayfa</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#anasayfa">Ana Sayfa</a></li>
                         <li class="nav-item"><a class="nav-link" href="pages/pages_hakkimizda.html">Hakkımızda</a></li>
                         <li class="nav-item"><a class="nav-link" href="#hizmetler">Hizmetler</a></li>
                         <li class="nav-item"><a class="nav-link" href="#sosyal-medya">Sosyal Medya</a></li>
@@ -36,74 +42,83 @@
     </header>
 
     <main>
-        <section id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="carousel-image-wrapper">
-                        <img src="images/carousel1.jpg" class="d-block w-100 carousel-image" alt="Dev-Soy Hizmetleri">
+        <!-- Hero Carousel -->
+        <section id="anasayfa">
+            <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slayt 1"></button>
+                    <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slayt 2"></button>
+                    <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slayt 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-image-wrapper">
+                            <img src="images/carousel1.jpg" class="d-block w-100 carousel-image" alt="Dev/Soy Danışmanlık Hizmetleri">
+                        </div>
+                        <div class="carousel-caption">
+                            <h1>Dev/Soy Danışmanlık</h1>
+                            <p>Güvenilir çözüm ortağınız. 20+ yıllık tecrübeyle KKTC'de profesyonel danışmanlık.</p>
+                            <a href="#hizmetler" class="btn btn-primary btn-lg mt-3">Hizmetlerimizi İnceleyin</a>
+                        </div>
                     </div>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>Dev/Soy Güvenilir Çözüm Ortağınız</h1>
-                        <p>Evrak takip ve personel tedarik hizmetlerinde profesyonel destek.</p>
-                        <a href="#hizmetler" class="btn btn-primary btn-lg mt-3">Hizmetlerimizi İnceleyin</a>
+                    <div class="carousel-item">
+                        <div class="carousel-image-wrapper">
+                            <img src="images/carousel2.jpg" class="d-block w-100 carousel-image" alt="Evrak Takip Hizmetleri">
+                        </div>
+                        <div class="carousel-caption">
+                            <h1>Hızlı Evrak Takip</h1>
+                            <p>Çalışma izni, oturma izni ve tüm resmi işlemlerinizde yanınızdayız.</p>
+                            <a href="pages/evrak_takip_page.html" class="btn btn-primary btn-lg mt-3">Detayları İnceleyin</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-image-wrapper">
+                            <img src="images/carousel3.jpg" class="d-block w-100 carousel-image" alt="Personel Tedarik Hizmetleri">
+                        </div>
+                        <div class="carousel-caption">
+                            <h1>Profesyonel Personel Tedarik</h1>
+                            <p>7 ülkeden nitelikli iş gücü. İhtiyacınıza özel ekipler oluşturuyoruz.</p>
+                            <a href="pages/personel_tedarik_page.html" class="btn btn-primary btn-lg mt-3">Detayları İnceleyin</a>
+                        </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="carousel-image-wrapper">
-                        <img src="images/carousel2.jpg" class="d-block w-100 carousel-image" alt="Evrak Takip">
-                    </div>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>Hızlı Evrak Takip</h1>
-                        <p>Güvenilir ve hızlı çözümler sunuyoruz.</p>
-                        <a href="pages/evrak_takip_page.html" class="btn btn-primary btn-lg mt-3">Detayları İnceleyin</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-image-wrapper">
-                        <img src="images/carousel3.jpg" class="d-block w-100 carousel-image" alt="Personel Tedarik">
-                    </div>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>Profesyonel Personel Tedarik</h1>
-                        <p>İhtiyacınıza özel ekipler oluşturuyoruz.</p>
-                        <a href="pages/personel_tedarik_page.html" class="btn btn-primary btn-lg mt-3">Detayları İnceleyin</a>
-                    </div>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Önceki</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Sonraki</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Önceki</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Sonraki</span>
-            </button>
         </section>
 
+        <!-- Hizmetler -->
         <section id="hizmetler" class="services py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center mb-5">
+                    <div class="col-12 text-center mb-5 animate-on-scroll">
                         <h2 class="section-title text-white">Hizmetlerimiz</h2>
                         <p class="text-white-50 lead">KKTC'de güvenilir danışmanlık hizmetleri</p>
                     </div>
                 </div>
                 <div class="row g-4">
-                    <div class="col-md-6">
+                    <div class="col-md-6 animate-on-scroll">
                         <div class="service-card">
-                            <img src="images/service1.jpg" alt="Evrak Takip Hizmeti" class="service-image">
+                            <img src="images/service1.jpg" alt="Evrak Takip Hizmeti" class="service-image" loading="lazy">
                             <div class="service-overlay">
                                 <h3 class="text-white mb-3">Evrak Takip</h3>
-                                <p class="text-white-75 mb-4">KKTC'de tüm resmi evrak işlemlerinizi profesyonelce takip ediyoruz.</p>
+                                <p class="text-white-75 mb-4">Çalışma izni, oturma izni, vatandaşlık başvuruları ve tüm resmi evrakların takibi.</p>
                                 <a href="pages/evrak_takip_page.html" class="btn btn-primary">Detaylı İncele</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 animate-on-scroll">
                         <div class="service-card">
-                            <img src="images/service2.png" alt="Personel Tedarik Hizmeti" class="service-image">
+                            <img src="images/service2.png" alt="Personel Tedarik Hizmeti" class="service-image" loading="lazy">
                             <div class="service-overlay">
                                 <h3 class="text-white mb-3">Personel Tedarik</h3>
-                                <p class="text-white-75 mb-4">Uluslararası kaynaklardan nitelikli personel temin ediyoruz.</p>
+                                <p class="text-white-75 mb-4">Bangladeş, Nepal, Türkmenistan, Pakistan, İran, Filipinler ve Sri Lanka'dan nitelikli iş gücü.</p>
                                 <a href="pages/personel_tedarik_page.html" class="btn btn-primary">Detaylı İncele</a>
                             </div>
                         </div>
@@ -112,24 +127,75 @@
             </div>
         </section>
 
+        <!-- Neden Biz -->
+        <section id="neden-biz" class="py-5" style="background: var(--gray-light);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mb-5 animate-on-scroll">
+                        <h2 class="section-title">Neden Dev/Soy?</h2>
+                        <p class="lead text-muted">20+ yıllık deneyimimizle fark yaratıyoruz</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="content-card text-center h-100">
+                            <div class="mb-3">
+                                <i class="fas fa-shield-halved" style="font-size: 2.5rem; color: var(--gold);"></i>
+                            </div>
+                            <h4>Güvenilirlik</h4>
+                            <p class="text-muted">20 yılı aşkın sektör tecrübesiyle her adımda yanınızdayız.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="content-card text-center h-100">
+                            <div class="mb-3">
+                                <i class="fas fa-bolt" style="font-size: 2.5rem; color: var(--gold);"></i>
+                            </div>
+                            <h4>Hızlı Süreç</h4>
+                            <p class="text-muted">Bürokratik işlemlerinizi en kısa sürede sonuçlandırıyoruz.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="content-card text-center h-100">
+                            <div class="mb-3">
+                                <i class="fas fa-earth-americas" style="font-size: 2.5rem; color: var(--gold);"></i>
+                            </div>
+                            <h4>Uluslararası Ağ</h4>
+                            <p class="text-muted">7 ülkedeki resmi acentalarımızla global iş gücü çözümleri.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 animate-on-scroll">
+                        <div class="content-card text-center h-100">
+                            <div class="mb-3">
+                                <i class="fas fa-headset" style="font-size: 2.5rem; color: var(--gold);"></i>
+                            </div>
+                            <h4>7/24 Destek</h4>
+                            <p class="text-muted">Sorularınız ve süreçleriniz için her zaman ulaşılabilir durumdayız.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sosyal Medya -->
         <section id="sosyal-medya" class="social py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center mb-5">
+                    <div class="col-12 text-center mb-5 animate-on-scroll">
                         <h2 class="section-title">Sosyal Medya</h2>
                         <p class="lead text-muted">Bizi sosyal medyadan takip edin</p>
                     </div>
                 </div>
                 <div class="row justify-content-center g-4">
-                    <div class="col-md-3 col-6 text-center">
+                    <div class="col-md-3 col-6 text-center animate-on-scroll">
                         <a href="https://facebook.com/devsoyconsultancy" class="social-link" target="_blank" rel="noopener noreferrer">
-                            <img src="images/facebook.png" alt="Facebook" class="social-icon">
+                            <img src="images/facebook.png" alt="Facebook" class="social-icon" loading="lazy">
                             <h5 class="mt-3">Facebook</h5>
                         </a>
                     </div>
-                    <div class="col-md-3 col-6 text-center">
+                    <div class="col-md-3 col-6 text-center animate-on-scroll">
                         <a href="https://instagram.com/devsoyconsultancy" class="social-link" target="_blank" rel="noopener noreferrer">
-                            <img src="images/instagram.jpg" alt="Instagram" class="social-icon">
+                            <img src="images/instagram.jpg" alt="Instagram" class="social-icon" loading="lazy">
                             <h5 class="mt-3">Instagram</h5>
                         </a>
                     </div>
@@ -137,43 +203,54 @@
             </div>
         </section>
 
+        <!-- İletişim -->
         <section id="iletisim" class="contact py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center mb-5">
+                    <div class="col-12 text-center mb-5 animate-on-scroll">
                         <h2 class="section-title">İletişim</h2>
                         <p class="lead text-muted">Bizimle iletişime geçin</p>
                     </div>
                 </div>
                 <div class="row g-4">
-                    <div class="col-md-6">
+                    <div class="col-md-6 animate-on-scroll">
                         <div class="contact-info h-100">
                             <h4 class="mb-4">İletişim Bilgileri</h4>
                             <div class="contact-item mb-3">
                                 <i class="fas fa-map-marker-alt text-warning me-3"></i>
-                                <strong>Adres:</strong> İkinci Selim Cad. Köşklü Çiftlik LEFKOŞA 99010
+                                <div>
+                                    <strong>Adres:</strong><br>
+                                    İkinci Selim Cad. Köşklü Çiftlik<br>
+                                    LEFKOŞA 99010
+                                </div>
                             </div>
                             <div class="contact-item mb-3">
                                 <i class="fas fa-envelope text-warning me-3"></i>
-                                <strong>E-posta:</strong> 
-                                <a href="mailto:devsoyconsultancy@gmail.com">devsoyconsultancy@gmail.com</a>
+                                <div>
+                                    <strong>E-posta:</strong><br>
+                                    <a href="mailto:devsoyconsultancy@gmail.com">devsoyconsultancy@gmail.com</a>
+                                </div>
                             </div>
                             <div class="contact-item mb-3">
                                 <i class="fas fa-phone text-warning me-3"></i>
-                                <strong>Telefon:</strong> 
-                                <a href="tel:+905391084979">+90 539 108 49 79</a>
+                                <div>
+                                    <strong>Telefon:</strong><br>
+                                    <a href="tel:+905391084979">+90 539 108 49 79</a>
+                                </div>
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-globe text-warning me-3"></i>
-                                <strong>Web:</strong> 
-                                <a href="https://devsoy.online" target="_blank">devsoy.online</a>
+                                <div>
+                                    <strong>Web:</strong><br>
+                                    <a href="https://devsoy.online" target="_blank">devsoy.online</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 animate-on-scroll">
                         <div class="contact-form-wrapper">
                             <h4 class="mb-4">Mesaj Gönderin</h4>
-                            <form id="contactForm">
+                            <form id="contactForm" novalidate>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" id="name" placeholder="Adınız" required>
                                 </div>
@@ -181,9 +258,14 @@
                                     <input type="email" class="form-control" id="email" placeholder="E-posta Adresiniz" required>
                                 </div>
                                 <div class="mb-3">
+                                    <input type="tel" class="form-control" id="phone" placeholder="Telefon Numaranız (isteğe bağlı)">
+                                </div>
+                                <div class="mb-3">
                                     <textarea class="form-control" id="message" rows="4" placeholder="Mesajınız" required></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary w-100">Mesajı Gönder</button>
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-paper-plane me-2"></i>Mesajı Gönder
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -196,14 +278,14 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-8">
-                    <p class="mb-0">© 2026 Dev/Soy Danışmanlık. Tüm hakları saklıdır.</p>
+                    <p class="mb-0">&copy; 2026 Dev/Soy Danışmanlık. Tüm hakları saklıdır.</p>
                 </div>
                 <div class="col-md-4 text-md-end">
                     <div class="d-flex justify-content-md-end justify-content-center gap-3 mt-3 mt-md-0">
-                        <a href="https://facebook.com/devsoyconsultancy" class="social-link-footer" target="_blank">
+                        <a href="https://facebook.com/devsoyconsultancy" class="social-link-footer" target="_blank" rel="noopener noreferrer">
                             <img src="images/facebook.png" alt="Facebook" style="width: 32px; height: 32px; border-radius: 8px;">
                         </a>
-                        <a href="https://instagram.com/devsoyconsultancy" class="social-link-footer" target="_blank">
+                        <a href="https://instagram.com/devsoyconsultancy" class="social-link-footer" target="_blank" rel="noopener noreferrer">
                             <img src="images/instagram.jpg" alt="Instagram" style="width: 32px; height: 32px; border-radius: 8px;">
                         </a>
                     </div>
@@ -214,6 +296,5 @@
 
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
