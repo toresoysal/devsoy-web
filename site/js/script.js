@@ -233,7 +233,7 @@
             var revealObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('ds-reveal--visible');
+                        entry.target.classList.add('visible');
                         revealObserver.unobserve(entry.target);
                     }
                 });
@@ -247,7 +247,7 @@
             });
         } else {
             revealElements.forEach(function(el) {
-                el.classList.add('ds-reveal--visible');
+                el.classList.add('visible');
             });
         }
 
