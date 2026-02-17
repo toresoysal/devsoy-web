@@ -1,208 +1,455 @@
 /* ============================================
-   Dev/Soy Danışmanlık - Main JavaScript
+   Dev/Soy Danismanlik - Premium JavaScript
+   Video Hero + Animations + Interactions
    ============================================ */
 
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
+    'use strict';
 
     // ==================
-    // 1. NAVBAR SCROLL EFFECT
+    // CONFIG
     // ==================
-    const navbar = document.querySelector('.navbar');
+    const SLIDE_DURATION = 6000;   // ms per slide
+    const SLIDE_COUNT = 4;
+    const COUNTER_DURATION = 2000; // ms for counter animation
+    const NAVBAR_SCROLL_THRESHOLD = 60;
 
-    function handleNavbarScroll() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+    // ==================
+    // PRELOADER
+    // ==================
+    function initPreloader() {
+        const preloader = document.getElementById('preloader');
+        if (!preloader) return;
+
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                preloader.classList.add('ds-preloader--done');
+                setTimeout(function() {
+                    preloader.remove();
+                }, 600);
+            }, 300);
+        });
     }
 
-    window.addEventListener('scroll', handleNavbarScroll, { passive: true });
-    handleNavbarScroll(); // Initial check
+    initPreloader();
 
     // ==================
-    // 2. SMOOTH SCROLL FOR ANCHOR LINKS
+    // DOM READY
     // ==================
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href').substring(1);
-            if (!targetId) return;
+    document.addEventListener('DOMContentLoaded', function() {
 
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                e.preventDefault();
-                const navbarHeight = navbar.offsetHeight;
-                const targetPosition = targetSection.offsetTop - navbarHeight - 10;
+        // ==================
+        // 1. VIDEO HERO CONTROLLER
+        // ==================
+        const heroSection = document.querySelector('.ds-hero');
 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
+        if (heroSection) {
+            const videos = heroSection.querySelectorAll('.ds-hero__video');
+            const slideTexts = heroSection.querySelectorAll('.ds-hero__slide-text');
+            const progressItems = heroSection.querySelectorAll('.ds-hero__progress-item');
+            const slideLabels = heroSection.querySelectorAll('.ds-hero__slide-label');
+
+            let currentSlide = 0;
+            let slideTimer = null;
+            let isTransitioning = false;
+
+            function goToSlide(index) {
+                if (isTransitioning || index === currentSlide) return;
+                isTransitioning = true;
+
+                // Remove active from current
+                videos[currentSlide].classList.remove('active');
+                slideTexts[currentSlide].classList.remove('active');
+                progressItems[currentSlide].classList.remove('active');
+                slideLabels[currentSlide].classList.remove('active');
+
+                // Pause previous video
+                videos[currentSlide].pause();
+                videos[currentSlide].currentTime = 0;
+
+                // Set new
+                currentSlide = index;
+
+                // Activate new
+                videos[currentSlide].classList.add('active');
+                slideTexts[currentSlide].classList.add('active');
+                progressItems[currentSlide].classList.add('active');
+                slideLabels[currentSlide].classList.add('active');
+
+                // Play new video
+                var playPromise = videos[currentSlide].play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function() {
+                        // Autoplay blocked - silently handle
+                    });
+                }
+
+                // Reset timer
+                clearInterval(slideTimer);
+                startSlideTimer();
+
+                setTimeout(function() {
+                    isTransitioning = false;
+                }, 800);
+            }
+
+            function nextSlide() {
+                var next = (currentSlide + 1) % SLIDE_COUNT;
+                goToSlide(next);
+            }
+
+            function startSlideTimer() {
+                slideTimer = setInterval(nextSlide, SLIDE_DURATION);
+            }
+
+            // Initialize: play first video
+            function initHero() {
+                var playPromise = videos[0].play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function() {
+                        // Autoplay blocked - show content anyway
+                    });
+                }
+                startSlideTimer();
+            }
+
+            // Click on progress items
+            progressItems.forEach(function(item, i) {
+                item.addEventListener('click', function() {
+                    goToSlide(i);
+                });
+            });
+
+            // Click on labels
+            slideLabels.forEach(function(label, i) {
+                label.addEventListener('click', function() {
+                    goToSlide(i);
+                });
+            });
+
+            // Pause on hover (desktop only)
+            if (window.matchMedia('(hover: hover)').matches) {
+                heroSection.addEventListener('mouseenter', function() {
+                    clearInterval(slideTimer);
+                });
+                heroSection.addEventListener('mouseleave', function() {
+                    startSlideTimer();
                 });
             }
-        });
-    });
 
-    // ==================
-    // 3. ANIMATE ON SCROLL (Intersection Observer)
-    // ==================
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
+            // Wait for first video to be ready then init
+            if (videos[0].readyState >= 3) {
+                initHero();
+            } else {
+                videos[0].addEventListener('canplay', initHero, { once: true });
+                // Fallback: init after timeout even if video not ready
+                setTimeout(function() {
+                    if (!slideTimer) initHero();
+                }, 2000);
+            }
+        }
 
-    if (animateElements.length > 0 && 'IntersectionObserver' in window) {
-        const animateObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    animateObserver.unobserve(entry.target); // Only animate once
+        // ==================
+        // 2. NAVBAR SCROLL EFFECT
+        // ==================
+        const navbar = document.getElementById('navbar');
+
+        function handleNavbarScroll() {
+            if (!navbar) return;
+            if (window.scrollY > NAVBAR_SCROLL_THRESHOLD) {
+                navbar.classList.remove('ds-navbar--transparent');
+                navbar.classList.add('ds-navbar--solid');
+            } else {
+                navbar.classList.add('ds-navbar--transparent');
+                navbar.classList.remove('ds-navbar--solid');
+            }
+        }
+
+        window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+        handleNavbarScroll();
+
+        // ==================
+        // 3. MOBILE NAV TOGGLE
+        // ==================
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', function() {
+                navToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.classList.toggle('nav-open');
+            });
+
+            // Close on link click
+            navLinks.querySelectorAll('.ds-navbar__link, .ds-navbar__cta').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.classList.remove('nav-open');
+                });
+            });
+
+            // Close on outside click
+            document.addEventListener('click', function(e) {
+                if (navLinks.classList.contains('active') &&
+                    !navLinks.contains(e.target) &&
+                    !navToggle.contains(e.target)) {
+                    navToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.classList.remove('nav-open');
                 }
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -40px 0px'
+        }
+
+        // ==================
+        // 4. SMOOTH SCROLL
+        // ==================
+        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var targetId = this.getAttribute('href').substring(1);
+                if (!targetId) return;
+
+                var target = document.getElementById(targetId);
+                if (target) {
+                    e.preventDefault();
+                    var navHeight = navbar ? navbar.offsetHeight : 72;
+                    var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+
+                    window.scrollTo({
+                        top: top,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
 
-        animateElements.forEach(el => {
-            animateObserver.observe(el);
-        });
-    } else {
-        // Fallback: show all elements if IntersectionObserver not supported
-        animateElements.forEach(el => el.classList.add('visible'));
-    }
+        // ==================
+        // 5. SCROLL REVEAL (Intersection Observer)
+        // ==================
+        var revealElements = document.querySelectorAll('.ds-reveal');
 
-    // ==================
-    // 4. CONTACT FORM HANDLER
-    // ==================
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+            var revealObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('ds-reveal--visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -60px 0px'
+            });
 
-            const name = document.getElementById('name')?.value.trim();
-            const email = document.getElementById('email')?.value.trim();
-            const message = document.getElementById('message')?.value.trim();
+            revealElements.forEach(function(el) {
+                revealObserver.observe(el);
+            });
+        } else {
+            revealElements.forEach(function(el) {
+                el.classList.add('ds-reveal--visible');
+            });
+        }
 
-            // Validation
-            if (!name || !email || !message) {
-                showAlert('Lütfen tüm zorunlu alanları doldurun.', 'error');
-                return;
-            }
+        // ==================
+        // 6. COUNTER ANIMATION
+        // ==================
+        var statNumbers = document.querySelectorAll('.ds-stat__number[data-count]');
 
-            if (!validateEmail(email)) {
-                showAlert('Lütfen geçerli bir e-posta adresi girin.', 'error');
-                return;
-            }
+        if (statNumbers.length > 0 && 'IntersectionObserver' in window) {
+            var counterObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
 
-            // Success
-            showAlert('Mesajınız başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.', 'success');
-            contactForm.reset();
-        });
-    }
+            statNumbers.forEach(function(el) {
+                counterObserver.observe(el);
+            });
+        }
 
-    // ==================
-    // 5. MOBILE MENU - Close on Link Click
-    // ==================
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-    if (navbarCollapse) {
-        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                if (navbarCollapse.classList.contains('show')) {
-                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                    if (bsCollapse) {
-                        bsCollapse.hide();
+        function animateCounter(el) {
+            var target = parseInt(el.getAttribute('data-count'), 10);
+            var start = 0;
+            var startTime = null;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / COUNTER_DURATION, 1);
+
+                // Easing: easeOutExpo
+                var eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                var current = Math.floor(eased * target);
+
+                // Format number
+                if (target >= 1000) {
+                    el.textContent = current.toLocaleString('tr-TR');
+                } else {
+                    el.textContent = current;
+                }
+
+                // Add suffix
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    // Final value with suffix
+                    var suffix = '';
+                    var label = el.closest('.ds-stat') ? el.closest('.ds-stat').querySelector('.ds-stat__label') : null;
+                    if (label) {
+                        var labelText = label.textContent.toLowerCase();
+                        if (labelText.includes('%')) {
+                            suffix = '%';
+                        } else if (labelText.includes('yillik') || target === 20) {
+                            suffix = '+';
+                        } else if (target > 100) {
+                            suffix = '+';
+                        }
+                    }
+
+                    if (target >= 1000) {
+                        el.textContent = target.toLocaleString('tr-TR') + suffix;
+                    } else {
+                        el.textContent = target + suffix;
                     }
                 }
-            });
-        });
-    }
-
-    // ==================
-    // 6. SERVICE CARD CLICK HANDLER
-    // ==================
-    document.addEventListener('click', function(e) {
-        const card = e.target.closest('.service-card');
-        if (card) {
-            const link = card.querySelector('a[href]');
-            if (link && !e.target.matches('a, a *')) {
-                window.location.href = link.href;
             }
+
+            requestAnimationFrame(step);
         }
-    });
 
-}); // End DOMContentLoaded
+        // ==================
+        // 7. CONTACT FORM
+        // ==================
+        var contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
 
+                var name = document.getElementById('name');
+                var email = document.getElementById('email');
+                var message = document.getElementById('message');
 
-// ==================
-// UTILITY FUNCTIONS
-// ==================
+                if (!name || !email || !message) return;
 
-function validateEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+                var nameVal = name.value.trim();
+                var emailVal = email.value.trim();
+                var msgVal = message.value.trim();
 
-function showAlert(message, type) {
-    // Remove existing alerts
-    document.querySelectorAll('.custom-alert').forEach(el => el.remove());
+                if (!nameVal || !emailVal || !msgVal) {
+                    showAlert('Lutfen tum zorunlu alanlari doldurun.', 'error');
+                    return;
+                }
 
-    const alertDiv = document.createElement('div');
-    alertDiv.className = `alert alert-${type === 'error' ? 'danger' : 'success'} alert-dismissible fade show custom-alert`;
-    alertDiv.innerHTML = `
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
-    `;
+                if (!validateEmail(emailVal)) {
+                    showAlert('Lutfen gecerli bir e-posta adresi girin.', 'error');
+                    return;
+                }
 
-    alertDiv.style.cssText = `
-        position: fixed;
-        top: 90px;
-        right: 20px;
-        z-index: 9999;
-        max-width: 420px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        border-radius: 8px;
-        animation: slideInRight 0.3s ease;
-    `;
-
-    document.body.appendChild(alertDiv);
-
-    setTimeout(() => {
-        if (alertDiv.parentNode) {
-            alertDiv.style.opacity = '0';
-            alertDiv.style.transition = 'opacity 0.3s ease';
-            setTimeout(() => alertDiv.remove(), 300);
+                showAlert('Mesajiniz basariyla gonderildi! En kisa surede sizinle iletisime gececegiz.', 'success');
+                contactForm.reset();
+            });
         }
-    }, 5000);
-}
 
+        // ==================
+        // 8. ACTIVE NAV LINK HIGHLIGHT
+        // ==================
+        var sections = document.querySelectorAll('section[id]');
+        var navLinksAll = document.querySelectorAll('.ds-navbar__link');
 
-// ==================
-// BACK TO TOP BUTTON
-// ==================
-(function() {
-    const btn = document.createElement('button');
-    btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    btn.className = 'back-to-top';
-    btn.setAttribute('aria-label', 'Sayfanın başına dön');
-    document.body.appendChild(btn);
+        if (sections.length > 0 && navLinksAll.length > 0) {
+            window.addEventListener('scroll', function() {
+                var scrollPos = window.scrollY + 150;
 
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 400) {
-            btn.classList.add('show');
-        } else {
-            btn.classList.remove('show');
+                sections.forEach(function(section) {
+                    var top = section.offsetTop;
+                    var height = section.offsetHeight;
+                    var id = section.getAttribute('id');
+
+                    if (scrollPos >= top && scrollPos < top + height) {
+                        navLinksAll.forEach(function(link) {
+                            link.classList.remove('ds-navbar__link--active');
+                            var href = link.getAttribute('href');
+                            if (href === '#' + id) {
+                                link.classList.add('ds-navbar__link--active');
+                            }
+                        });
+                    }
+                });
+            }, { passive: true });
         }
-    }, { passive: true });
 
-    btn.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-})();
+    }); // End DOMContentLoaded
 
 
-// ==================
-// PRELOADER (if exists)
-// ==================
-window.addEventListener('load', function() {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        preloader.style.opacity = '0';
-        setTimeout(() => preloader.remove(), 300);
+    // ==================
+    // UTILITY: Email Validation
+    // ==================
+    function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
-});
+
+    // ==================
+    // UTILITY: Alert
+    // ==================
+    function showAlert(message, type) {
+        document.querySelectorAll('.ds-alert').forEach(function(el) { el.remove(); });
+
+        var alertDiv = document.createElement('div');
+        alertDiv.className = 'ds-alert ds-alert--' + (type === 'error' ? 'error' : 'success');
+        alertDiv.innerHTML = '<span>' + message + '</span><button class="ds-alert__close" aria-label="Kapat">&times;</button>';
+
+        document.body.appendChild(alertDiv);
+
+        // Trigger animation
+        requestAnimationFrame(function() {
+            alertDiv.classList.add('ds-alert--show');
+        });
+
+        // Close button
+        alertDiv.querySelector('.ds-alert__close').addEventListener('click', function() {
+            dismissAlert(alertDiv);
+        });
+
+        // Auto dismiss
+        setTimeout(function() {
+            dismissAlert(alertDiv);
+        }, 5000);
+    }
+
+    function dismissAlert(el) {
+        if (!el || !el.parentNode) return;
+        el.classList.remove('ds-alert--show');
+        setTimeout(function() {
+            if (el.parentNode) el.remove();
+        }, 300);
+    }
+
+    // ==================
+    // BACK TO TOP BUTTON
+    // ==================
+    (function() {
+        var btn = document.createElement('button');
+        btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        btn.className = 'ds-back-to-top';
+        btn.setAttribute('aria-label', 'Sayfanin basina don');
+        document.body.appendChild(btn);
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                btn.classList.add('ds-back-to-top--show');
+            } else {
+                btn.classList.remove('ds-back-to-top--show');
+            }
+        }, { passive: true });
+
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+
+})();
