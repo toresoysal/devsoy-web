@@ -341,16 +341,16 @@
                 var msgVal = message.value.trim();
 
                 if (!nameVal || !emailVal || !msgVal) {
-                    showAlert('Lutfen tum zorunlu alanlari doldurun.', 'error');
+                    showAlert('Lütfen tüm zorunlu alanları doldurun.', 'error');
                     return;
                 }
 
                 if (!validateEmail(emailVal)) {
-                    showAlert('Lutfen gecerli bir e-posta adresi girin.', 'error');
+                    showAlert('Lütfen geçerli bir e-posta adresi girin.', 'error');
                     return;
                 }
 
-                showAlert('Mesajiniz basariyla gonderildi! En kisa surede sizinle iletisime gececegiz.', 'success');
+                showAlert('Mesajınız başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.', 'success');
                 contactForm.reset();
             });
         }
