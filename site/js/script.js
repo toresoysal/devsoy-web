@@ -182,7 +182,7 @@
             });
 
             // Close on link click
-            navLinks.querySelectorAll('.ds-navbar__link, .ds-navbar__cta').forEach(function(link) {
+            navLinks.querySelectorAll('.ds-navbar__link, .ds-navbar__cta, .ds-navbar__dropdown-menu a').forEach(function(link) {
                 link.addEventListener('click', function() {
                     navToggle.classList.remove('active');
                     navLinks.classList.remove('active');
@@ -201,6 +201,23 @@
                 }
             });
         }
+
+        // ==================
+        // 3b. MOBILE DROPDOWN TOGGLE
+        // ==================
+        var dropdowns = document.querySelectorAll('.ds-navbar__dropdown');
+        dropdowns.forEach(function(dropdown) {
+            var link = dropdown.querySelector('.ds-navbar__link');
+            if (link) {
+                link.addEventListener('click', function(e) {
+                    // Only toggle on mobile (when hamburger is visible)
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('open');
+                    }
+                });
+            }
+        });
 
         // ==================
         // 4. SMOOTH SCROLL
