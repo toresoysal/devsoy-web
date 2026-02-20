@@ -696,39 +696,122 @@ h1, h2, h3, h4, h5, h6 {
 /* ==================
    SECTION: STATS / RAKAMLAR
    ================== */
-.ds-stats {
-    padding: 80px 0;
-    background: var(--dark);
-    color: var(--white);
+/* ==================
+   SECTION: TRUST MARQUEE BAND
+   ================== */
+.ds-trust-band {
+    padding: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(18,16,12,1) 50%, rgba(10,10,10,1) 100%);
+    border-top: 1px solid rgba(201,168,76,0.12);
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+    overflow: hidden;
+    position: relative;
 }
 
-.ds-stats__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+/* Fade edges */
+.ds-trust-band::before,
+.ds-trust-band::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
 }
 
-.ds-stat {
-    text-align: center;
-    padding: 2rem 1rem;
+.ds-trust-band::before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(10,10,10,1) 0%, transparent 100%);
 }
 
-.ds-stat__number {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
-    font-weight: 600;
+.ds-trust-band::after {
+    right: 0;
+    background: linear-gradient(270deg, rgba(10,10,10,1) 0%, transparent 100%);
+}
+
+.ds-trust-band__track {
+    display: flex;
+    width: max-content;
+    animation: trustScroll 35s linear infinite;
+}
+
+.ds-trust-band__track:hover {
+    animation-play-state: paused;
+}
+
+.ds-trust-band__content {
+    display: flex;
+    align-items: center;
+    padding: 1.75rem 0;
+    flex-shrink: 0;
+}
+
+.ds-trust-band__item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0 2rem;
+    white-space: nowrap;
+}
+
+.ds-trust-band__icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
     color: var(--gold);
-    line-height: 1;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.02em;
+    opacity: 0.85;
+    transition: all 0.3s ease;
 }
 
-.ds-stat__label {
+.ds-trust-band__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Globe spin animation */
+.ds-trust-band__icon--globe {
+    animation: globeSpin 8s linear infinite;
+}
+
+@keyframes globeSpin {
+    0%   { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.ds-trust-band__item:hover .ds-trust-band__icon {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(201,168,76,0.4));
+}
+
+.ds-trust-band__text {
     font-family: var(--font-body);
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.6);
-    font-weight: 400;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
     letter-spacing: 0.02em;
+    line-height: 1.3;
+}
+
+.ds-trust-band__text strong {
+    color: var(--gold);
+    font-weight: 600;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+}
+
+.ds-trust-band__divider {
+    color: var(--gold);
+    opacity: 0.25;
+    font-size: 0.5rem;
+    padding: 0 0.75rem;
+    flex-shrink: 0;
+}
+
+@keyframes trustScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 /* ==================
@@ -1283,8 +1366,17 @@ textarea.ds-input {
         display: none;
     }
 
-    .ds-stats__grid {
-        grid-template-columns: repeat(2, 1fr);
+    .ds-trust-band__icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .ds-trust-band__text {
+        font-size: 0.85rem;
+    }
+
+    .ds-trust-band__text strong {
+        font-size: 0.95rem;
     }
 
     .ds-why__grid {
@@ -1433,14 +1525,36 @@ textarea.ds-input {
         padding: 2rem 0;
     }
 
-    /* Stats Mobile */
-    .ds-stats__grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+    /* Trust Band Mobile */
+    .ds-trust-band__content {
+        padding: 1.25rem 0;
     }
 
-    .ds-stat {
-        padding: 1.5rem 0.5rem;
+    .ds-trust-band__item {
+        gap: 0.6rem;
+        padding: 0 1.25rem;
+    }
+
+    .ds-trust-band__icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .ds-trust-band__text {
+        font-size: 0.78rem;
+    }
+
+    .ds-trust-band__text strong {
+        font-size: 0.85rem;
+    }
+
+    .ds-trust-band__track {
+        animation-duration: 25s;
+    }
+
+    .ds-trust-band::before,
+    .ds-trust-band::after {
+        width: 50px;
     }
 
     /* Social Mobile */
@@ -1481,14 +1595,6 @@ textarea.ds-input {
 
     .ds-hero__label {
         font-size: 0.625rem;
-    }
-
-    .ds-stats__grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .ds-stat__number {
-        font-size: 2rem;
     }
 
     .ds-btn {

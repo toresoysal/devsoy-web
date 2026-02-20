@@ -11,7 +11,7 @@
     // ==================
     const SLIDE_DURATION = 6000;   // ms per slide
     const SLIDE_COUNT = 4;
-    const COUNTER_DURATION = 2000; // ms for counter animation
+    // COUNTER_DURATION removed (trust marquee band uses CSS only)
     const NAVBAR_SCROLL_THRESHOLD = 60;
 
     // ==================
@@ -269,75 +269,8 @@
         }
 
         // ==================
-        // 6. COUNTER ANIMATION
+        // 6. (Removed - old counter animation replaced by CSS trust marquee band)
         // ==================
-        var statNumbers = document.querySelectorAll('.ds-stat__number[data-count]');
-
-        if (statNumbers.length > 0 && 'IntersectionObserver' in window) {
-            var counterObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        animateCounter(entry.target);
-                        counterObserver.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.5
-            });
-
-            statNumbers.forEach(function(el) {
-                counterObserver.observe(el);
-            });
-        }
-
-        function animateCounter(el) {
-            var target = parseInt(el.getAttribute('data-count'), 10);
-            var start = 0;
-            var startTime = null;
-
-            function step(timestamp) {
-                if (!startTime) startTime = timestamp;
-                var progress = Math.min((timestamp - startTime) / COUNTER_DURATION, 1);
-
-                // Easing: easeOutExpo
-                var eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-                var current = Math.floor(eased * target);
-
-                // Format number
-                if (target >= 1000) {
-                    el.textContent = current.toLocaleString('tr-TR');
-                } else {
-                    el.textContent = current;
-                }
-
-                // Add suffix
-                if (progress < 1) {
-                    requestAnimationFrame(step);
-                } else {
-                    // Final value with suffix
-                    var suffix = '';
-                    var label = el.closest('.ds-stat') ? el.closest('.ds-stat').querySelector('.ds-stat__label') : null;
-                    if (label) {
-                        var labelText = label.textContent.toLowerCase();
-                        if (labelText.includes('%')) {
-                            suffix = '%';
-                        } else if (labelText.includes('yillik') || target === 20) {
-                            suffix = '+';
-                        } else if (target > 100) {
-                            suffix = '+';
-                        }
-                    }
-
-                    if (target >= 1000) {
-                        el.textContent = target.toLocaleString('tr-TR') + suffix;
-                    } else {
-                        el.textContent = target + suffix;
-                    }
-                }
-            }
-
-            requestAnimationFrame(step);
-        }
 
         // ==================
         // 7. CONTACT FORM
