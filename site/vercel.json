@@ -1,15 +1,2 @@
 {
-    "redirects": [
-        {
-            "source": "/:path(.*)",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "www.devsoy.online"
-                }
-            ],
-            "destination": "https://devsoy.online/:path",
-            "permanent": true
-        }
-    ]
 }
