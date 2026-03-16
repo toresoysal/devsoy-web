@@ -53,6 +53,14 @@
             let slideTimer = null;
             let isTransitioning = false;
 
+            // Preload a video by setting preload attribute
+            function preloadVideo(index) {
+                if (index >= 0 && index < videos.length && videos[index].preload === 'none') {
+                    videos[index].preload = 'auto';
+                    videos[index].load();
+                }
+            }
+
             function goToSlide(index) {
                 if (isTransitioning || index === currentSlide) return;
                 isTransitioning = true;
@@ -84,6 +92,10 @@
                     });
                 }
 
+                // Preload next video in advance
+                var nextIndex = (currentSlide + 1) % SLIDE_COUNT;
+                preloadVideo(nextIndex);
+
                 // Reset timer
                 clearInterval(slideTimer);
                 startSlideTimer();
@@ -111,6 +123,11 @@
                     });
                 }
                 startSlideTimer();
+
+                // Preload next video after a short delay
+                setTimeout(function() {
+                    preloadVideo(1);
+                }, 2000);
             }
 
             // Click on progress items

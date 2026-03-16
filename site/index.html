@@ -8,19 +8,33 @@
     <meta name="author" content="Dev/Soy Danışmanlık">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="KKTC Danışmanlık Hizmetleri | Dev/Soy Danışmanlık">
-    <meta property="og:description" content="KKTC'de profesyonel danışmanlık hizmetleri. 15+ yıllık tecrübe.">
+    <meta property="og:description" content="KKTC'de 15+ yıllık tecrübeyle casino eğlence turizmi, kurumsal danışmanlık, personel tedarik, evrak takip ve eğitim danışmanlığı hizmetleri.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.devsoy.online">
-    <link rel="canonical" href="https://www.devsoy.online/">
+    <meta property="og:url" content="https://devsoy.online/">
+    <meta property="og:image" content="https://devsoy.online/images/devsoy-logo.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:site_name" content="Dev/Soy Danışmanlık">
+    <meta property="og:locale" content="tr_TR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="KKTC Danışmanlık Hizmetleri | Dev/Soy Danışmanlık">
+    <meta name="twitter:description" content="KKTC'de 15+ yıllık tecrübeyle casino eğlence turizmi, kurumsal danışmanlık ve personel tedarik hizmetleri.">
+    <meta name="twitter:image" content="https://devsoy.online/images/devsoy-logo.png">
+    <link rel="canonical" href="https://devsoy.online/">
     <title>KKTC Danışmanlık Hizmetleri | Personel Tedarik, Evrak Takip, Casino Turizmi - Dev/Soy</title>
 
-    <!-- Fonts -->
+    <!-- Resource Hints -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap&subset=latin-ext" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap&subset=latin-ext" rel="stylesheet"></noscript>
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Icons (async load to avoid render-blocking) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
@@ -111,7 +125,7 @@
     <nav class="ds-navbar ds-navbar--transparent" id="navbar">
         <div class="ds-navbar__inner">
             <a href="index.html" class="ds-navbar__logo">
-                <img src="images/devsoy-logo.png" alt="Dev/Soy" loading="eager">
+                <img src="images/devsoy-logo.png" alt="Dev/Soy" loading="eager" width="48" height="48">
                 <div class="ds-navbar__logo-text">Dev/<span>Soy</span></div>
             </a>
 
@@ -129,6 +143,7 @@
                     </ul>
                 </li>
                 <li><a href="pages/pages_kktc-yasam.html" class="ds-navbar__link">KKTC'de Yaşam</a></li>
+                <li><a href="https://studio.devsoy.online" target="_blank" class="ds-navbar__link" style="color:var(--gold);font-weight:600;display:flex;align-items:center;gap:5px;"><i class="fas fa-pen-ruler" style="font-size:0.7rem;"></i> Web Stüdyosu</a></li>
                 <li><a href="#iletisim" class="ds-navbar__cta">İletişim</a></li>
             </ul>
 
@@ -144,16 +159,16 @@
         <!-- Hero Section - Video Background -->
         <section class="ds-hero" id="anasayfa">
             <div class="ds-hero__video-container">
-                <video class="ds-hero__video active" data-slide="0" muted playsinline preload="auto">
+                <video class="ds-hero__video active" data-slide="0" muted playsinline preload="auto" autoplay>
                     <source src="videos/hero-casino.mp4" type="video/mp4">
                 </video>
-                <video class="ds-hero__video" data-slide="1" muted playsinline preload="auto">
+                <video class="ds-hero__video" data-slide="1" muted playsinline preload="none">
                     <source src="videos/hero-consulting.mp4" type="video/mp4">
                 </video>
-                <video class="ds-hero__video" data-slide="2" muted playsinline preload="auto">
+                <video class="ds-hero__video" data-slide="2" muted playsinline preload="none">
                     <source src="videos/hero-documents.mp4" type="video/mp4">
                 </video>
-                <video class="ds-hero__video" data-slide="3" muted playsinline preload="auto">
+                <video class="ds-hero__video" data-slide="3" muted playsinline preload="none">
                     <source src="videos/hero-staffing.mp4" type="video/mp4">
                 </video>
             </div>
@@ -514,14 +529,14 @@
             <div class="ds-container">
                 <div class="ds-social__inner ds-reveal">
                     <a href="https://www.facebook.com/profile.php?id=61577918402689" target="_blank" rel="noopener noreferrer" class="ds-social__item">
-                        <img src="images/facebook-gold.png" alt="Facebook" class="ds-social__icon" loading="lazy">
+                        <img src="images/facebook-gold.png" alt="Facebook" class="ds-social__icon" loading="lazy" width="32" height="32">
                         <div>
                             <div class="ds-social__name">Facebook</div>
                             <div class="ds-social__handle">@devsoy.consultancy</div>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/devsoy.consultancy/" target="_blank" rel="noopener noreferrer" class="ds-social__item">
-                        <img src="images/instagram-gold.png" alt="Instagram" class="ds-social__icon" loading="lazy">
+                        <img src="images/instagram-gold.png" alt="Instagram" class="ds-social__icon" loading="lazy" width="32" height="32">
                         <div>
                             <div class="ds-social__name">Instagram</div>
                             <div class="ds-social__handle">@devsoy.consultancy</div>
@@ -604,19 +619,19 @@
                 </div>
                 <div class="ds-footer__socials">
                     <a href="https://www.facebook.com/profile.php?id=61577918402689" target="_blank" rel="noopener noreferrer">
-                        <img src="images/facebook-gold.png" alt="Facebook" class="ds-footer__social-icon" loading="lazy">
+                        <img src="images/facebook-gold.png" alt="Facebook" class="ds-footer__social-icon" loading="lazy" width="32" height="32">
                     </a>
                     <a href="https://www.instagram.com/devsoy.consultancy/" target="_blank" rel="noopener noreferrer">
-                        <img src="images/instagram-gold.png" alt="Instagram" class="ds-footer__social-icon" loading="lazy">
+                        <img src="images/instagram-gold.png" alt="Instagram" class="ds-footer__social-icon" loading="lazy" width="32" height="32">
                     </a>
                     <a href="https://wa.me/905391084979" target="_blank" rel="noopener noreferrer">
-                        <img src="images/whatsapp-gold.png" alt="WhatsApp" class="ds-footer__social-icon" loading="lazy">
+                        <img src="images/whatsapp-gold.png" alt="WhatsApp" class="ds-footer__social-icon" loading="lazy" width="32" height="32">
                     </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

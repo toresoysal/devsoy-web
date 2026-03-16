@@ -734,6 +734,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     width: max-content;
     animation: trustScroll 35s linear infinite;
+    will-change: transform;
 }
 
 .ds-trust-band__track:hover {
