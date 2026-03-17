@@ -116,6 +116,11 @@
 
             // Initialize: play first video
             function initHero() {
+                // Upgrade first video to full preload now that page is interactive
+                // (was preload="metadata" to avoid eager 8.9MB download on page load)
+                if (videos[0].preload === 'metadata') {
+                    videos[0].preload = 'auto';
+                }
                 var playPromise = videos[0].play();
                 if (playPromise !== undefined) {
                     playPromise.catch(function() {
@@ -127,7 +132,7 @@
                 // Preload next video after a short delay
                 setTimeout(function() {
                     preloadVideo(1);
-                }, 2000);
+                }, 3000);
             }
 
             // Click on progress items
@@ -154,15 +159,16 @@
                 });
             }
 
-            // Wait for first video to be ready then init
-            if (videos[0].readyState >= 3) {
+            // preload="metadata": readyState başta 1 olur, canplay event bekle.
+            // Fallback timer ile en geç 800ms içinde hero başlar (video buffer'da olsa da).
+            if (videos[0].readyState >= 2) {
                 initHero();
             } else {
                 videos[0].addEventListener('canplay', initHero, { once: true });
-                // Fallback: init after timeout even if video not ready
+                // Fallback: metadata yüklense de video play komutu ver
                 setTimeout(function() {
                     if (!slideTimer) initHero();
-                }, 2000);
+                }, 800);
             }
         }
 
