@@ -238,7 +238,13 @@
 
         // ==================
         // 4. SMOOTH SCROLL
+        // (navbar height cached once — no layout read on every click)
         // ==================
+        var cachedNavHeight = navbar ? navbar.offsetHeight : 72;
+        window.addEventListener('resize', function() {
+            cachedNavHeight = navbar ? navbar.offsetHeight : 72;
+        }, { passive: true });
+
         document.querySelectorAll('a[href^="#"]').forEach(function(link) {
             link.addEventListener('click', function(e) {
                 var targetId = this.getAttribute('href').substring(1);
@@ -247,8 +253,7 @@
                 var target = document.getElementById(targetId);
                 if (target) {
                     e.preventDefault();
-                    var navHeight = navbar ? navbar.offsetHeight : 72;
-                    var top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+                    var top = target.getBoundingClientRect().top + window.pageYOffset - cachedNavHeight - 10;
 
                     window.scrollTo({
                         top: top,
@@ -324,28 +329,46 @@
 
         // ==================
         // 8. ACTIVE NAV LINK HIGHLIGHT
+        // (layout values cached once — no forced reflow on scroll)
         // ==================
         var sections = document.querySelectorAll('section[id]');
         var navLinksAll = document.querySelectorAll('.ds-navbar__link');
 
         if (sections.length > 0 && navLinksAll.length > 0) {
-            window.addEventListener('scroll', function() {
-                var scrollPos = window.scrollY + 150;
-
+            // Cache section positions — read layout once, outside scroll handler
+            var sectionCache = [];
+            function cacheSectionPositions() {
+                sectionCache = [];
                 sections.forEach(function(section) {
-                    var top = section.offsetTop;
-                    var height = section.offsetHeight;
-                    var id = section.getAttribute('id');
+                    sectionCache.push({
+                        top: section.offsetTop,
+                        height: section.offsetHeight,
+                        id: section.getAttribute('id')
+                    });
+                });
+            }
+            cacheSectionPositions();
+            // Re-cache on resize (layout changes)
+            window.addEventListener('resize', cacheSectionPositions, { passive: true });
 
-                    if (scrollPos >= top && scrollPos < top + height) {
-                        navLinksAll.forEach(function(link) {
-                            link.classList.remove('ds-navbar__link--active');
-                            var href = link.getAttribute('href');
-                            if (href === '#' + id) {
-                                link.classList.add('ds-navbar__link--active');
-                            }
-                        });
-                    }
+            // rAF throttle: scroll handler runs max once per animation frame
+            var rafPending = false;
+            window.addEventListener('scroll', function() {
+                if (rafPending) return;
+                rafPending = true;
+                requestAnimationFrame(function() {
+                    rafPending = false;
+                    var scrollPos = window.scrollY + 150;
+                    sectionCache.forEach(function(s) {
+                        if (scrollPos >= s.top && scrollPos < s.top + s.height) {
+                            navLinksAll.forEach(function(link) {
+                                link.classList.remove('ds-navbar__link--active');
+                                if (link.getAttribute('href') === '#' + s.id) {
+                                    link.classList.add('ds-navbar__link--active');
+                                }
+                            });
+                        }
+                    });
                 });
             }, { passive: true });
         }
