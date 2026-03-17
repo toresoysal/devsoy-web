@@ -10,7 +10,7 @@
     // CONFIG
     // ==================
     const SLIDE_DURATION = 6000;   // ms per slide
-    const SLIDE_COUNT = 4;
+    const SLIDE_COUNT = 5;
     // COUNTER_DURATION removed (trust marquee band uses CSS only)
     const NAVBAR_SCROLL_THRESHOLD = 60;
 
