@@ -142,7 +142,7 @@
                             </div>
                         </div>
                         <p style="color: #555; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem;">İşletmenizin büyümesini destekleyecek sürdürülebilir bir kurumsal yapı tasarlıyoruz. Departman organizasyonundan görev tanımlarına, yetki-sorumluluk matrisinden raporlama hatlarına kadar şirketinizin ihtiyacına özel hiyerarşi modelleri oluşturuyoruz. Doğru yapılandırılmış bir organizasyon, verimliliği artırır ve büyümeyi kolaylaştırır.</p>
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="ds-kurumsal-sub-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem;">
                             <div style="padding: 1.25rem; background: var(--off-white); border-radius: 8px;">
                                 <i class="fas fa-project-diagram" style="color: var(--gold); margin-bottom: 0.5rem; font-size: 1.1rem;"></i>
                                 <h4 style="font-family: var(--font-display); font-size: 0.95rem; margin-bottom: 0.35rem;">Organizasyon Şeması</h4>
@@ -182,7 +182,7 @@
                             </div>
                         </div>
                         <p style="color: #555; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem;">Özellikle gıda üretim sektöründeki derin deneyimimizle, firmanızın maliyet yapısını detaylı analiz ediyor, tasarruf alanlarını tespit ediyor ve uygulanabilir optimizasyon önerileri sunuyoruz. Hellim, zeytinyağı, tahin, süt ürünleri ve diğer gıda üretim alanlarında KKTC'ye özel maliyet modelleri geliştiriyoruz.</p>
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="ds-kurumsal-sub-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem;">
                             <div style="padding: 1.25rem; background: var(--off-white); border-radius: 8px;">
                                 <i class="fas fa-search-dollar" style="color: var(--gold); margin-bottom: 0.5rem; font-size: 1.1rem;"></i>
                                 <h4 style="font-family: var(--font-display); font-size: 0.95rem; margin-bottom: 0.35rem;">Maliyet Analizi</h4>
@@ -222,7 +222,7 @@
                             </div>
                         </div>
                         <p style="color: #555; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem;">Üretim süreçlerinizi baştan sona analiz ederek verimsizlik noktalarını tespit ediyor, uygulanabilir iyileştirme önerileri sunuyoruz. Hammadde tedarikinden nihai ürüne kadar tüm değer zincirini optimize ederek hem maliyetlerinizi düşürüyor hem de ürün kalitenizi artırıyoruz.</p>
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="ds-kurumsal-sub-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem;">
                             <div style="padding: 1.25rem; background: var(--off-white); border-radius: 8px;">
                                 <i class="fas fa-industry" style="color: var(--gold); margin-bottom: 0.5rem; font-size: 1.1rem;"></i>
                                 <h4 style="font-family: var(--font-display); font-size: 0.95rem; margin-bottom: 0.35rem;">Süreç Haritalama</h4>
@@ -262,7 +262,7 @@
                             </div>
                         </div>
                         <p style="color: #555; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem;">Firmanızın operasyonel süreçlerini dijitalleştirmek için özel ERP yazılımı ve stok kontrol uygulamaları geliştiriyoruz. Satın alma, üretim, depo yönetimi ve satış süreçlerinizi tek bir platformda entegre ederek gerçek zamanlı kontrol ve raporlama imkânı sağlıyoruz.</p>
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="ds-kurumsal-sub-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem;">
                             <div style="padding: 1.25rem; background: var(--off-white); border-radius: 8px;">
                                 <i class="fas fa-database" style="color: var(--gold); margin-bottom: 0.5rem; font-size: 1.1rem;"></i>
                                 <h4 style="font-family: var(--font-display); font-size: 0.95rem; margin-bottom: 0.35rem;">ERP Yazılımı</h4>
@@ -447,5 +447,16 @@
 
     <script src="../js/script.js" defer></script>
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<style>
+@media (max-width: 768px) {
+    .ds-kurumsal-sub-grid { grid-template-columns: 1fr !important; }
+    .ds-detail-card[style*="padding: 2.5rem"] { padding: 1.5rem !important; }
+    .ds-detail-card[style*="padding: 2.5rem"] [style*="margin: -2.5rem"] {
+        margin-left: -1.5rem !important;
+        margin-right: -1.5rem !important;
+        margin-top: -1.5rem !important;
+    }
+}
+</style>
 </body>
 </html>

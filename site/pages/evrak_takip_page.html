@@ -89,7 +89,7 @@
                     <h2 class="section-heading">Sizlere hangi süreçlerde yardımcı olabiliriz?</h2>
                     <p class="section-desc">Bürokratik süreçleri sizin adınıza yönetiyor, her aşamada yanınızda oluyoruz.</p>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;" class="ds-reveal">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;" class="ds-reveal ds-evrak-grid">
                     <div class="ds-detail-card" style="overflow: hidden;">
                         <div style="height: 140px; background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url('../images/evrak-calisma.jpg') center/cover no-repeat; margin: -2rem -2rem 1.5rem -2rem; border-radius: 6px 6px 0 0;"></div>
                         <div style="margin-bottom: 1rem;"><i class="fas fa-id-card" style="font-size: 2rem; color: var(--gold);"></i></div>
@@ -251,5 +251,16 @@
 
     <script src="../js/script.js" defer></script>
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<style>
+@media (max-width: 768px) {
+    .ds-evrak-grid { grid-template-columns: 1fr !important; }
+    .ds-evrak-grid .ds-detail-card { padding: 1.5rem; }
+    .ds-evrak-grid .ds-detail-card [style*="margin: -2rem"] {
+        margin-left: -1.5rem !important;
+        margin-right: -1.5rem !important;
+        margin-top: -1.5rem !important;
+    }
+}
+</style>
 </body>
 </html>
