@@ -21,7 +21,7 @@
     // 2. "New Form" oluştur → devsoyconsultancy@gmail.com gir
     // 3. Verilen 8 karakterli form ID'yi aşağıya yaz (xpwdxxxx gibi)
     // ==================
-    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/FORM_ID_BURAYA';
+    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mpqyopdz';
 
     // ==================
     // PRELOADER
