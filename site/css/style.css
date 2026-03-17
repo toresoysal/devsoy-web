@@ -560,6 +560,370 @@ h1, h2, h3, h4, h5, h6 {
     color: rgba(255,255,255,0.6);
 }
 
+/* ==============================================
+   MARVEL PANELS HERO
+   ============================================== */
+
+/* Panel hero section */
+.ds-hero--panels {
+    height: 100vh;
+    min-height: 580px;
+    position: relative;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+/* Flex container */
+.ds-panels {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Individual panel */
+.ds-panel {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: flex 0.95s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Expand hovered, shrink siblings */
+.ds-panels:hover .ds-panel {
+    flex: 0.22;
+}
+.ds-panels:hover .ds-panel:hover {
+    flex: 4.2;
+}
+
+/* Background image */
+.ds-panel__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.1s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+}
+.ds-panel:hover .ds-panel__bg {
+    transform: scale(1.07);
+}
+
+/* Color tint overlay */
+.ds-panel__tint {
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.9s;
+}
+.ds-panel:hover .ds-panel__tint {
+    opacity: 0.48;
+}
+
+/* Dark bottom gradient for readability */
+.ds-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.96) 0%,
+        rgba(0,0,0,0.55) 38%,
+        rgba(0,0,0,0.08) 65%,
+        transparent 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Thin gold divider between panels */
+.ds-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(201,168,76,0.45) 25%,
+        rgba(201,168,76,0.85) 60%,
+        rgba(201,168,76,0.45) 85%,
+        transparent 100%
+    );
+    z-index: 4;
+    transition: opacity 0.4s;
+}
+.ds-panels:hover .ds-panel:hover::before {
+    opacity: 0;
+}
+
+/* Inner content */
+.ds-panel__inner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem 2.8rem;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Panel number */
+.ds-panel__num {
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.28em;
+    margin-bottom: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Icon circle */
+.ds-panel__icon {
+    width: 42px;
+    height: 42px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+    box-shadow: 0 0 22px rgba(201,168,76,0.35);
+    transition: transform 0.45s, box-shadow 0.45s;
+}
+.ds-panel:hover .ds-panel__icon {
+    transform: scale(1.12);
+    box-shadow: 0 0 35px rgba(201,168,76,0.65);
+}
+
+/* Vertical short title — shown when collapsed */
+.ds-panel__title-short {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.88);
+    white-space: nowrap;
+    letter-spacing: 0.14em;
+    transition: opacity 0.45s, transform 0.45s;
+    line-height: 1;
+    margin-bottom: 0;
+}
+.ds-panels:hover .ds-panel__title-short {
+    opacity: 0.4;
+}
+.ds-panels:hover .ds-panel:hover .ds-panel__title-short {
+    opacity: 0;
+    transform: rotate(180deg) translateY(-12px);
+}
+
+/* Expanded content — revealed on hover */
+.ds-panel__reveal {
+    position: absolute;
+    bottom: 2.8rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: 0.2s;
+}
+.ds-panels:hover .ds-panel:hover .ds-panel__reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Full title */
+.ds-panel__title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+}
+
+/* Description */
+.ds-panel__desc {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.70);
+    line-height: 1.65;
+    margin-bottom: 1.1rem;
+}
+
+/* CTA */
+.ds-panel__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--gold);
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition: gap 0.3s;
+}
+.ds-panel__cta:hover {
+    gap: 0.7rem;
+}
+
+/* Gold accent line that sweeps across bottom on hover */
+.ds-panel__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,0.25) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 5;
+}
+.ds-panel:hover .ds-panel__line {
+    transform: scaleX(1);
+}
+
+/* Brand center overlay */
+.ds-panels__brand-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+    text-align: center;
+    pointer-events: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    white-space: nowrap;
+}
+.ds-hero--panels:has(.ds-panel:hover) .ds-panels__brand-center {
+    opacity: 0;
+    transform: translate(-50%, -46%);
+}
+.ds-panels__brand-logo {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 3px 30px rgba(0,0,0,0.85);
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+.ds-panels__brand-logo span {
+    color: var(--gold);
+}
+.ds-panels__brand-tagline {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    margin-top: 0.8rem;
+}
+
+/* Scroll hint */
+.ds-hero__scroll-hint {
+    position: absolute;
+    bottom: 1.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    color: rgba(255,255,255,0.35);
+    font-size: 0.8rem;
+    animation: ds-bounce 2.2s ease-in-out infinite;
+    pointer-events: none;
+}
+@keyframes ds-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(7px); }
+}
+
+/* Mobile dots */
+.ds-panels__dots {
+    display: none;
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    gap: 0.45rem;
+    align-items: center;
+}
+.ds-panels__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.32);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.35s;
+}
+.ds-panels__dot.active {
+    background: var(--gold);
+    width: 22px;
+    border-radius: 4px;
+}
+
+/* ==================
+   MOBILE — Carousel
+   ================== */
+@media (max-width: 768px) {
+    .ds-hero--panels {
+        height: 100svh;
+        min-height: 500px;
+    }
+    .ds-panels {
+        flex-wrap: nowrap;
+        transition: transform 0.72s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .ds-panel {
+        flex: 0 0 100vw;
+        min-width: 100vw;
+        max-width: 100vw;
+    }
+    /* Disable desktop hover effects */
+    .ds-panels:hover .ds-panel,
+    .ds-panels:hover .ds-panel:hover {
+        flex: 0 0 100vw;
+        min-width: 100vw;
+    }
+    .ds-panel::before { display: none; }
+    /* Always show reveal on mobile */
+    .ds-panel__reveal {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: none !important;
+    }
+    .ds-panel__title-short { display: none; }
+    .ds-panels__brand-center { display: none; }
+    .ds-hero__scroll-hint { display: none; }
+    .ds-panels__dots { display: flex; }
+    .ds-panel__tint { opacity: 0.82 !important; }
+    .ds-panel__title { font-size: 2rem; }
+    .ds-panel__desc { font-size: 0.88rem; }
+    .ds-panel__inner { padding: 2rem 2rem 5rem; }
+    .ds-panel__reveal {
+        bottom: 5rem;
+        left: 2rem;
+        right: 2rem;
+    }
+}
+
 /* ==================
    BUTTONS
    ================== */
@@ -1573,11 +1937,14 @@ textarea.ds-input {
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(10, 10, 10, 0.98);
+        background: #0a0a0a;
+        background: rgba(10, 10, 10, 0.99);
+        z-index: 999;
         flex-direction: column;
         align-items: flex-start;
         padding: 2rem;
         gap: 0;
+        overflow-y: auto;
     }
 
     .ds-navbar__links.open,

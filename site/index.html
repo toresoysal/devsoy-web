@@ -172,92 +172,135 @@
     </nav>
 
     <main>
-        <!-- Hero Section - Video Background -->
-        <section class="ds-hero" id="anasayfa">
-            <div class="ds-hero__video-container">
-                <video class="ds-hero__video active" data-slide="0" muted playsinline preload="metadata" autoplay>
-                    <source src="videos/hero-web.mp4" type="video/mp4">
-                </video>
-                <video class="ds-hero__video" data-slide="1" muted playsinline preload="none">
-                    <source src="videos/hero-consulting.mp4" type="video/mp4">
-                </video>
-                <video class="ds-hero__video" data-slide="2" muted playsinline preload="none">
-                    <source src="videos/hero-casino.mp4" type="video/mp4">
-                </video>
-                <video class="ds-hero__video" data-slide="3" muted playsinline preload="none">
-                    <source src="videos/hero-documents.mp4" type="video/mp4">
-                </video>
-                <video class="ds-hero__video" data-slide="4" muted playsinline preload="none">
-                    <source src="videos/hero-staffing.mp4" type="video/mp4">
-                </video>
+        <!-- Hero Section - Marvel Panels -->
+        <section class="ds-hero ds-hero--panels" id="anasayfa">
+
+            <!-- Brand Center (fades on hover) -->
+            <div class="ds-panels__brand-center">
+                <div class="ds-panels__brand-logo">Dev/<span>Soy</span></div>
+                <p class="ds-panels__brand-tagline">Strateji. Güven. Sonuç.</p>
             </div>
 
-            <div class="ds-hero__overlay"></div>
+            <!-- 6 Service Panels -->
+            <div class="ds-panels" id="heroPanels">
 
-            <div class="ds-hero__content">
-                <div class="ds-hero__label visible" id="heroLabel">Dev/Soy Danışmanlık</div>
-
-                <div id="heroTextContainer" style="position: relative;">
-                    <!-- Slide 0: Web & Dijital Çözümler -->
-                    <div class="ds-hero__slide-text active" data-slide="0">
-                        <h1 class="ds-hero__title visible">Web &amp; Dijital Çözümler</h1>
-                        <p class="ds-hero__subtitle visible">Kurumsal web siteleri, e-ticaret platformları ve anahtar teslim dijital varlık yönetimi. KKTC'den dünyaya açılan pencereniz.</p>
+                <!-- 01 — Web & Dijital -->
+                <div class="ds-panel">
+                    <div class="ds-panel__bg" style="background-image:url('images/web-hero.jpg');"></div>
+                    <div class="ds-panel__tint" style="background:rgba(8,20,55,0.70);"></div>
+                    <div class="ds-panel__inner">
+                        <span class="ds-panel__num">01</span>
+                        <div class="ds-panel__icon"><i class="fas fa-code"></i></div>
+                        <p class="ds-panel__title-short">Web &amp; Dijital</p>
+                        <div class="ds-panel__reveal">
+                            <h2 class="ds-panel__title">Web &amp;<br>Dijital Çözümler</h2>
+                            <p class="ds-panel__desc">Kurumsal web siteleri, e-ticaret platformları ve anahtar teslim dijital varlık yönetimi.</p>
+                            <a href="pages/web_tasarim_page.html" class="ds-panel__cta">Keşfet <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <!-- Slide 1: Kurumsal Danışmanlık -->
-                    <div class="ds-hero__slide-text" data-slide="1">
-                        <h2 class="ds-hero__title visible">Kurumsal Danışmanlık</h2>
-                        <p class="ds-hero__subtitle visible">Şirket kuruluşu, yapılandırma ve kurumsal yönetim danışmanlığı. İşletmenizi bir sonraki seviyeye taşıyoruz.</p>
-                    </div>
-                    <!-- Slide 2: Casino Turizmi -->
-                    <div class="ds-hero__slide-text" data-slide="2">
-                        <h2 class="ds-hero__title visible">Casino Eğlence Turizmi</h2>
-                        <p class="ds-hero__subtitle visible">KKTC'nin en büyük casinolarında misafirlerinize unutulmaz bir eğlence ve tatil deneyimi sunuyoruz. Uçak, konaklama ve VIP organizasyon hizmetleri.</p>
-                    </div>
-                    <!-- Slide 3: Evrak Takip -->
-                    <div class="ds-hero__slide-text" data-slide="3">
-                        <h2 class="ds-hero__title visible">Evrak Takip &amp; Muhaceret</h2>
-                        <p class="ds-hero__subtitle visible">Çalışma izni, oturma izni, vatandaşlık başvuruları ve tüm resmi evrak işlemlerinizde profesyonel takip hizmeti.</p>
-                    </div>
-                    <!-- Slide 4: Personel Tedarik -->
-                    <div class="ds-hero__slide-text" data-slide="4">
-                        <h2 class="ds-hero__title visible">Personel Tedarik Hizmetleri</h2>
-                        <p class="ds-hero__subtitle visible">7 ülkeden nitelikli iş gücü temini. Sektörünüze özel, yasal süreçleri tamamlanmış profesyonel kadro çözümleri.</p>
-                    </div>
+                    <div class="ds-panel__line"></div>
                 </div>
 
-                <div class="ds-hero__actions visible">
-                    <a href="#hizmetler" class="ds-btn ds-btn--primary">Hizmetlerimiz</a>
-                    <a href="#iletisim" class="ds-btn ds-btn--outline">Bize Ulaşın</a>
+                <!-- 02 — Casino Eğlence Turizmi -->
+                <div class="ds-panel">
+                    <div class="ds-panel__bg" style="background-image:url('images/cratos-otel.jpg');"></div>
+                    <div class="ds-panel__tint" style="background:rgba(55,28,0,0.68);"></div>
+                    <div class="ds-panel__inner">
+                        <span class="ds-panel__num">02</span>
+                        <div class="ds-panel__icon"><i class="fas fa-dice"></i></div>
+                        <p class="ds-panel__title-short">Casino Turizmi</p>
+                        <div class="ds-panel__reveal">
+                            <h2 class="ds-panel__title">Casino Eğlence<br>Turizmi</h2>
+                            <p class="ds-panel__desc">KKTC'nin en prestijli tesislerinde VIP organizasyon, konaklama ve transfer hizmetleri.</p>
+                            <a href="pages/casino_turizmi_page.html" class="ds-panel__cta">Keşfet <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="ds-panel__line"></div>
                 </div>
+
+                <!-- 03 — Kurumsal Danışmanlık -->
+                <div class="ds-panel">
+                    <div class="ds-panel__bg" style="background-image:url('images/kurumsal-hero.jpg');"></div>
+                    <div class="ds-panel__tint" style="background:rgba(10,10,10,0.65);"></div>
+                    <div class="ds-panel__inner">
+                        <span class="ds-panel__num">03</span>
+                        <div class="ds-panel__icon"><i class="fas fa-building"></i></div>
+                        <p class="ds-panel__title-short">Kurumsal Danışmanlık</p>
+                        <div class="ds-panel__reveal">
+                            <h2 class="ds-panel__title">Kurumsal<br>Danışmanlık</h2>
+                            <p class="ds-panel__desc">Şirket yapılandırma, maliyet analizi ve kurumsal dönüşüm hizmetleri.</p>
+                            <a href="pages/kurumsal_danismanlik_page.html" class="ds-panel__cta">Keşfet <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="ds-panel__line"></div>
+                </div>
+
+                <!-- 04 — Evrak Takip & Muhaceret -->
+                <div class="ds-panel">
+                    <div class="ds-panel__bg" style="background-image:url('images/evrak-hero.jpg');"></div>
+                    <div class="ds-panel__tint" style="background:rgba(0,28,22,0.70);"></div>
+                    <div class="ds-panel__inner">
+                        <span class="ds-panel__num">04</span>
+                        <div class="ds-panel__icon"><i class="fas fa-file-signature"></i></div>
+                        <p class="ds-panel__title-short">Evrak Takip</p>
+                        <div class="ds-panel__reveal">
+                            <h2 class="ds-panel__title">Evrak Takip<br>&amp; Muhaceret</h2>
+                            <p class="ds-panel__desc">Çalışma izni, oturma izni ve vatandaşlık süreçlerinde profesyonel destek.</p>
+                            <a href="pages/evrak_takip_page.html" class="ds-panel__cta">Keşfet <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="ds-panel__line"></div>
+                </div>
+
+                <!-- 05 — Personel Tedarik -->
+                <div class="ds-panel">
+                    <div class="ds-panel__bg" style="background-image:url('images/personel-hero.jpg');"></div>
+                    <div class="ds-panel__tint" style="background:rgba(45,15,0,0.68);"></div>
+                    <div class="ds-panel__inner">
+                        <span class="ds-panel__num">05</span>
+                        <div class="ds-panel__icon"><i class="fas fa-users"></i></div>
+                        <p class="ds-panel__title-short">Personel Tedarik</p>
+                        <div class="ds-panel__reveal">
+                            <h2 class="ds-panel__title">Personel<br>Tedarik</h2>
+                            <p class="ds-panel__desc">7 ülkeden nitelikli iş gücü temini, yasal süreçleri tamamlanmış kadro çözümleri.</p>
+                            <a href="pages/personel_tedarik_page.html" class="ds-panel__cta">Keşfet <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="ds-panel__line"></div>
+                </div>
+
+                <!-- 06 — Eğitim Danışmanlığı -->
+                <div class="ds-panel">
+                    <div class="ds-panel__bg" style="background-image:url('images/egitim-hero.jpg');"></div>
+                    <div class="ds-panel__tint" style="background:rgba(32,5,32,0.70);"></div>
+                    <div class="ds-panel__inner">
+                        <span class="ds-panel__num">06</span>
+                        <div class="ds-panel__icon"><i class="fas fa-graduation-cap"></i></div>
+                        <p class="ds-panel__title-short">Eğitim Danışmanlığı</p>
+                        <div class="ds-panel__reveal">
+                            <h2 class="ds-panel__title">Eğitim<br>Danışmanlığı</h2>
+                            <p class="ds-panel__desc">KKTC üniversiteleri için kayıt, burs ve kapsamlı öğrenci danışmanlık hizmetleri.</p>
+                            <a href="pages/egitim_danismanligi_page.html" class="ds-panel__cta">Keşfet <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="ds-panel__line"></div>
+                </div>
+
+            </div><!-- /ds-panels -->
+
+            <!-- Mobile: Slide dots -->
+            <div class="ds-panels__dots" id="panelDots">
+                <button class="ds-panels__dot active" data-idx="0" aria-label="Web ve Dijital"></button>
+                <button class="ds-panels__dot" data-idx="1" aria-label="Casino Turizmi"></button>
+                <button class="ds-panels__dot" data-idx="2" aria-label="Kurumsal Danismanlik"></button>
+                <button class="ds-panels__dot" data-idx="3" aria-label="Evrak Takip"></button>
+                <button class="ds-panels__dot" data-idx="4" aria-label="Personel Tedarik"></button>
+                <button class="ds-panels__dot" data-idx="5" aria-label="Egitim Danismanligi"></button>
             </div>
 
-            <!-- Progress Bar -->
-            <div class="ds-hero__progress" id="heroProgress">
-                <div class="ds-hero__progress-item active" data-slide="0">
-                    <div class="ds-hero__progress-fill"></div>
-                </div>
-                <div class="ds-hero__progress-item" data-slide="1">
-                    <div class="ds-hero__progress-fill"></div>
-                </div>
-                <div class="ds-hero__progress-item" data-slide="2">
-                    <div class="ds-hero__progress-fill"></div>
-                </div>
-                <div class="ds-hero__progress-item" data-slide="3">
-                    <div class="ds-hero__progress-fill"></div>
-                </div>
-                <div class="ds-hero__progress-item" data-slide="4">
-                    <div class="ds-hero__progress-fill"></div>
-                </div>
-            </div>
+            <!-- Scroll hint -->
+            <div class="ds-hero__scroll-hint"><i class="fas fa-chevron-down"></i></div>
 
-            <!-- Slide Labels -->
-            <div class="ds-hero__slide-labels" id="heroLabels">
-                <div class="ds-hero__slide-label active" data-slide="0">Web &amp; Dijital</div>
-                <div class="ds-hero__slide-label" data-slide="1">Kurumsal Danışmanlık</div>
-                <div class="ds-hero__slide-label" data-slide="2">Casino Turizmi</div>
-                <div class="ds-hero__slide-label" data-slide="3">Evrak Takip</div>
-                <div class="ds-hero__slide-label" data-slide="4">Personel Tedarik</div>
-            </div>
         </section>
 
         <!-- Capabilities / Hizmetler -->
@@ -664,5 +707,6 @@
     </footer>
 
     <script src="js/script.js" defer></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 </body>
 </html>

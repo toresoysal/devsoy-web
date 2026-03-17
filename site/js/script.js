@@ -39,137 +39,57 @@
     document.addEventListener('DOMContentLoaded', function() {
 
         // ==================
-        // 1. VIDEO HERO CONTROLLER
+        // 1. MARVEL PANELS — MOBILE CAROUSEL
         // ==================
-        const heroSection = document.querySelector('.ds-hero');
+        var heroPanels = document.getElementById('heroPanels');
+        var panelDots = document.querySelectorAll('.ds-panels__dot');
 
-        if (heroSection) {
-            const videos = heroSection.querySelectorAll('.ds-hero__video');
-            const slideTexts = heroSection.querySelectorAll('.ds-hero__slide-text');
-            const progressItems = heroSection.querySelectorAll('.ds-hero__progress-item');
-            const slideLabels = heroSection.querySelectorAll('.ds-hero__slide-label');
+        if (heroPanels && window.innerWidth <= 768) {
+            var currentPanel = 0;
+            var totalPanels = heroPanels.querySelectorAll('.ds-panel').length;
+            var autoPlay = null;
 
-            let currentSlide = 0;
-            let slideTimer = null;
-            let isTransitioning = false;
-
-            // Preload a video by setting preload attribute
-            function preloadVideo(index) {
-                if (index >= 0 && index < videos.length && videos[index].preload === 'none') {
-                    videos[index].preload = 'auto';
-                    videos[index].load();
-                }
+            function goToPanel(n) {
+                currentPanel = (n + totalPanels) % totalPanels;
+                heroPanels.style.transform = 'translateX(-' + (currentPanel * 100) + 'vw)';
+                panelDots.forEach(function(dot, i) {
+                    dot.classList.toggle('active', i === currentPanel);
+                });
             }
 
-            function goToSlide(index) {
-                if (isTransitioning || index === currentSlide) return;
-                isTransitioning = true;
-
-                // Remove active from current
-                videos[currentSlide].classList.remove('active');
-                slideTexts[currentSlide].classList.remove('active');
-                progressItems[currentSlide].classList.remove('active');
-                slideLabels[currentSlide].classList.remove('active');
-
-                // Pause previous video
-                videos[currentSlide].pause();
-                videos[currentSlide].currentTime = 0;
-
-                // Set new
-                currentSlide = index;
-
-                // Activate new
-                videos[currentSlide].classList.add('active');
-                slideTexts[currentSlide].classList.add('active');
-                progressItems[currentSlide].classList.add('active');
-                slideLabels[currentSlide].classList.add('active');
-
-                // Play new video
-                var playPromise = videos[currentSlide].play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(function() {
-                        // Autoplay blocked - silently handle
-                    });
-                }
-
-                // Preload next video in advance
-                var nextIndex = (currentSlide + 1) % SLIDE_COUNT;
-                preloadVideo(nextIndex);
-
-                // Reset timer
-                clearInterval(slideTimer);
-                startSlideTimer();
-
-                setTimeout(function() {
-                    isTransitioning = false;
-                }, 800);
+            function startAuto() {
+                autoPlay = setInterval(function() {
+                    goToPanel(currentPanel + 1);
+                }, 4200);
             }
 
-            function nextSlide() {
-                var next = (currentSlide + 1) % SLIDE_COUNT;
-                goToSlide(next);
+            function resetAuto() {
+                clearInterval(autoPlay);
+                startAuto();
             }
 
-            function startSlideTimer() {
-                slideTimer = setInterval(nextSlide, SLIDE_DURATION);
-            }
-
-            // Initialize: play first video
-            function initHero() {
-                // Upgrade first video to full preload now that page is interactive
-                // (was preload="metadata" to avoid eager 8.9MB download on page load)
-                if (videos[0].preload === 'metadata') {
-                    videos[0].preload = 'auto';
-                }
-                var playPromise = videos[0].play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(function() {
-                        // Autoplay blocked - show content anyway
-                    });
-                }
-                startSlideTimer();
-
-                // Preload next video after a short delay
-                setTimeout(function() {
-                    preloadVideo(1);
-                }, 3000);
-            }
-
-            // Click on progress items
-            progressItems.forEach(function(item, i) {
-                item.addEventListener('click', function() {
-                    goToSlide(i);
+            // Dot clicks
+            panelDots.forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    goToPanel(parseInt(this.getAttribute('data-idx'), 10));
+                    resetAuto();
                 });
             });
 
-            // Click on labels
-            slideLabels.forEach(function(label, i) {
-                label.addEventListener('click', function() {
-                    goToSlide(i);
-                });
-            });
+            // Touch swipe
+            var touchX = 0;
+            heroPanels.addEventListener('touchstart', function(e) {
+                touchX = e.touches[0].clientX;
+            }, { passive: true });
+            heroPanels.addEventListener('touchend', function(e) {
+                var dx = e.changedTouches[0].clientX - touchX;
+                if (Math.abs(dx) > 45) {
+                    goToPanel(currentPanel + (dx < 0 ? 1 : -1));
+                    resetAuto();
+                }
+            }, { passive: true });
 
-            // Pause on hover (desktop only)
-            if (window.matchMedia('(hover: hover)').matches) {
-                heroSection.addEventListener('mouseenter', function() {
-                    clearInterval(slideTimer);
-                });
-                heroSection.addEventListener('mouseleave', function() {
-                    startSlideTimer();
-                });
-            }
-
-            // preload="metadata": readyState başta 1 olur, canplay event bekle.
-            // Fallback timer ile en geç 800ms içinde hero başlar (video buffer'da olsa da).
-            if (videos[0].readyState >= 2) {
-                initHero();
-            } else {
-                videos[0].addEventListener('canplay', initHero, { once: true });
-                // Fallback: metadata yüklense de video play komutu ver
-                setTimeout(function() {
-                    if (!slideTimer) initHero();
-                }, 800);
-            }
+            startAuto();
         }
 
         // ==================
