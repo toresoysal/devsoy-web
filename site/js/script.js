@@ -15,6 +15,15 @@
     const NAVBAR_SCROLL_THRESHOLD = 60;
 
     // ==================
+    // FORMSPREE CONFIG
+    // Formspree'den form endpoint almak için:
+    // 1. https://formspree.io adresine git, ücretsiz üye ol
+    // 2. "New Form" oluştur → devsoyconsultancy@gmail.com gir
+    // 3. Verilen 8 karakterli form ID'yi aşağıya yaz (xpwdxxxx gibi)
+    // ==================
+    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/FORM_ID_BURAYA';
+
+    // ==================
     // PRELOADER
     // ==================
     function initPreloader() {
@@ -221,22 +230,25 @@
         // ==================
 
         // ==================
-        // 7. CONTACT FORM
+        // 7. CONTACT FORM — Formspree entegrasyonu
         // ==================
         var contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
 
-                var name = document.getElementById('name');
-                var email = document.getElementById('email');
-                var message = document.getElementById('message');
+                var nameEl    = document.getElementById('name');
+                var emailEl   = document.getElementById('email');
+                var phoneEl   = document.getElementById('phone');
+                var messageEl = document.getElementById('message');
+                var submitBtn = contactForm.querySelector('button[type="submit"]');
 
-                if (!name || !email || !message) return;
+                if (!nameEl || !emailEl || !messageEl) return;
 
-                var nameVal = name.value.trim();
-                var emailVal = email.value.trim();
-                var msgVal = message.value.trim();
+                var nameVal  = nameEl.value.trim();
+                var emailVal = emailEl.value.trim();
+                var phoneVal = phoneEl ? phoneEl.value.trim() : '';
+                var msgVal   = messageEl.value.trim();
 
                 if (!nameVal || !emailVal || !msgVal) {
                     showAlert('Lütfen tüm zorunlu alanları doldurun.', 'error');
@@ -248,8 +260,49 @@
                     return;
                 }
 
-                showAlert('Mesajınız başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.', 'success');
-                contactForm.reset();
+                // Formspree endpoint henüz yapılandırılmadıysa uyar
+                if (FORMSPREE_ENDPOINT.indexOf('FORM_ID_BURAYA') !== -1) {
+                    showAlert('Form henüz yapılandırılmadı. Lütfen WhatsApp veya e-posta ile ulaşın.', 'error');
+                    return;
+                }
+
+                // Submit butonu loading state
+                var origHTML = submitBtn ? submitBtn.innerHTML : '';
+                if (submitBtn) {
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
+                    submitBtn.disabled = true;
+                }
+
+                fetch(FORMSPREE_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        name: nameVal,
+                        email: emailVal,
+                        phone: phoneVal,
+                        message: msgVal,
+                        _subject: 'Yeni İletişim Formu — Dev/Soy Danışmanlık'
+                    })
+                })
+                .then(function(res) {
+                    if (res.ok) {
+                        showAlert('Mesajınız başarıyla iletildi! 24 saat içinde geri dönüş sağlıyoruz.', 'success');
+                        contactForm.reset();
+                    } else {
+                        return res.json().then(function(data) {
+                            throw new Error(data.error || 'Gönderim hatası');
+                        });
+                    }
+                })
+                .catch(function() {
+                    showAlert('Bir hata oluştu. Lütfen doğrudan <a href="mailto:devsoyconsultancy@gmail.com" style="color:#C9A84C;">e-posta</a> veya WhatsApp ile ulaşın.', 'error');
+                })
+                .finally(function() {
+                    if (submitBtn) {
+                        submitBtn.innerHTML = origHTML;
+                        submitBtn.disabled = false;
+                    }
+                });
             });
         }
 
@@ -344,6 +397,20 @@
             if (el.parentNode) el.remove();
         }, 300);
     }
+
+    // ==================
+    // WHATSAPP FLOATING BUTTON
+    // ==================
+    (function() {
+        var wa = document.createElement('a');
+        wa.href = 'https://wa.me/905391084979?text=Merhaba%2C%20Dev%2FSoy%20Dan%C4%B1%C5%9Fmanl%C4%B1k%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.';
+        wa.target = '_blank';
+        wa.rel = 'noopener noreferrer';
+        wa.className = 'ds-whatsapp-float';
+        wa.setAttribute('aria-label', 'WhatsApp ile iletişime geç');
+        wa.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.116 1.535 5.845L.057 23.492a.5.5 0 00.614.633l5.807-1.523A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 01-5.007-1.384l-.36-.213-3.726.977.994-3.634-.234-.373A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>';
+        document.body.appendChild(wa);
+    })();
 
     // ==================
     // BACK TO TOP BUTTON
