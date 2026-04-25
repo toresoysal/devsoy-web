@@ -58,28 +58,13 @@
             var totalPanels = heroPanels.querySelectorAll('.ds-panel').length;
             var autoPlay = null;
 
-            // Layout değerleri init'te bir kez okunur, reflow tetiklenmez
-            var viewportWidth = window.innerWidth;
-            // GPU compositing için will-change hint
-            heroPanels.style.willChange = 'transform';
-
             function goToPanel(n) {
                 currentPanel = (n + totalPanels) % totalPanels;
-                // requestAnimationFrame ile transform write'ı browser'ın paint cycle'ına hizala
-                // translate3d GPU layer oluşturur, layout/paint yerine sadece composite
-                requestAnimationFrame(function() {
-                    heroPanels.style.transform = 'translate3d(-' + (currentPanel * viewportWidth) + 'px, 0, 0)';
-                    panelDots.forEach(function(dot, i) {
-                        dot.classList.toggle('active', i === currentPanel);
-                    });
+                heroPanels.style.transform = 'translateX(-' + (currentPanel * 100) + 'vw)';
+                panelDots.forEach(function(dot, i) {
+                    dot.classList.toggle('active', i === currentPanel);
                 });
             }
-
-            // Viewport değişirse (orientation change) cached değeri güncelle
-            window.addEventListener('resize', function() {
-                viewportWidth = window.innerWidth;
-                goToPanel(currentPanel);
-            }, { passive: true });
 
             function startAuto() {
                 autoPlay = setInterval(function() {
