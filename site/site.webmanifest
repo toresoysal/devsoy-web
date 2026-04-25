@@ -1,21 +1,20 @@
 {
   "name": "Dev/Soy Danışmanlık",
   "short_name": "DevSoy",
-  "description": "KKTC'de kurumsal danışmanlık, web tasarım ve turizm hizmetleri.",
+  "description": "KKTC'de kurumsal danışmanlık, web tasarım, casino eğlence turizmi, personel tedarik, evrak takip ve eğitim hizmetleri.",
   "start_url": "/",
-  "display": "browser",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#0A0A0A",
-  "theme_color": "#C9A84C",
+  "theme_color": "#0A0A0A",
+  "lang": "tr",
+  "dir": "ltr",
+  "categories": ["business", "productivity"],
   "icons": [
-    {
-      "src": "/images/favicon-48.png",
-      "sizes": "48x48",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/favicon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
+    { "src": "/images/favicon-48.png", "sizes": "48x48", "type": "image/png" },
+    { "src": "/images/favicon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/images/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
