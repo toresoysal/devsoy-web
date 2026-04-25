@@ -69,7 +69,7 @@
             function startAuto() {
                 autoPlay = setInterval(function() {
                     goToPanel(currentPanel + 1);
-                }, 4200);
+                }, 5500);
             }
 
             function resetAuto() {

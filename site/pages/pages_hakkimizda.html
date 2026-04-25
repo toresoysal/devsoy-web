@@ -97,7 +97,7 @@
                         <p class="section-desc">2025 yılında Kuzey Kıbrıs Türk Cumhuriyeti'nde kurulan Dev/Soy Danışmanlık, kurucularının eğitim, gıda ve turizm sektörlerinde 15 yılı aşkın tecrübesiyle işletmelere ve bireylere profesyonel danışmanlık hizmetleri sunmaktadır.</p>
                     </div>
                     <div class="ds-reveal ds-reveal--delay-2">
-                        <img src="../images/ofis.jpeg" alt="Dev/Soy Danışmanlık Ofisi" style="width: 100%; border-radius: 12px; object-fit: cover; aspect-ratio: 4/3;" loading="lazy">
+                        <img src="../images/ofis.jpeg" alt="Dev/Soy Danışmanlık Ofisi" style="width: 100%; border-radius: 12px; object-fit: cover; object-position: center 30%; aspect-ratio: 4/3;" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -110,7 +110,16 @@
                     <span class="section-label">Hizmet Alanları</span>
                     <h2 class="section-heading">Zengin danışmanlık hizmetlerimiz</h2>
                 </div>
-                <div class="ds-reveal" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem;">
+                <div class="ds-reveal" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                    <a href="web_tasarim_page.html" class="ds-detail-card ds-hakkimizda-card" style="text-align: center; text-decoration: none; color: inherit; display: flex; flex-direction: column; overflow: hidden;">
+                        <div style="height: 120px; background: linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.48)), url('../images/web-hero.jpg') center/cover no-repeat; margin: -1.5rem -1.5rem 1.2rem -1.5rem; border-radius: 6px 6px 0 0; flex-shrink: 0;"></div>
+                        <div style="width: 50px; height: 50px; background: var(--dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                            <i class="fas fa-globe" style="font-size: 1.2rem; color: var(--gold);"></i>
+                        </div>
+                        <h3 style="font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.6rem;">Web &amp; Dijital Çözümler</h3>
+                        <p style="color: #666; font-size: 0.82rem; line-height: 1.6; flex: 1;">Kurumsal web tasarım, e-ticaret ve dijital marka çözümleri.</p>
+                        <span style="color: var(--gold); font-size: 0.82rem; font-weight: 600; margin-top: 0.8rem; display: inline-block;">Detaylı Bilgi &rarr;</span>
+                    </a>
                     <a href="casino_turizmi_page.html" class="ds-detail-card ds-hakkimizda-card" style="text-align: center; text-decoration: none; color: inherit; display: flex; flex-direction: column; overflow: hidden;">
                         <div style="height: 120px; background: linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.48)), url('../images/hakkimizda-casino.jpg') center/cover no-repeat; margin: -1.5rem -1.5rem 1.2rem -1.5rem; border-radius: 6px 6px 0 0; flex-shrink: 0;"></div>
                         <div style="width: 50px; height: 50px; background: var(--dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
@@ -159,19 +168,14 @@
                 </div>
 
                 <style>
-                    @media (max-width: 1024px) {
-                        .ds-hakkimizda-card { min-width: 0; }
-                        #hizmetler .ds-reveal[style*="grid-template-columns: repeat(5"] {
-                            grid-template-columns: repeat(3, 1fr) !important;
-                        }
-                    }
+                    .ds-hakkimizda-card { min-width: 0; }
                     @media (max-width: 768px) {
-                        #hizmetler .ds-reveal[style*="grid-template-columns: repeat(5"] {
+                        #hizmetler .ds-reveal[style*="grid-template-columns: repeat(3"] {
                             grid-template-columns: repeat(2, 1fr) !important;
                         }
                     }
                     @media (max-width: 480px) {
-                        #hizmetler .ds-reveal[style*="grid-template-columns: repeat(5"] {
+                        #hizmetler .ds-reveal[style*="grid-template-columns: repeat(3"] {
                             grid-template-columns: 1fr !important;
                         }
                     }
