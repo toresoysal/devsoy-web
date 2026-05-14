@@ -80,7 +80,9 @@ body {
     text-rendering: optimizeLegibility;
     overscroll-behavior-y: none;
     -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+    /* touch-action: manipulation kaldırıldı — bazı Android tarayıcılarda
+       hero gibi fixed-height bölümlerin üzerinde dikey scroll'u tutuk yapıyordu.
+       Modern tarayıcılarda double-tap zoom davranışı zaten makul. */
 }
 
 * {
@@ -870,21 +872,52 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0.8rem;
 }
 
-/* Scroll hint */
+/* Scroll hint — tıklanır, görünür, hem desktop hem mobilde */
 .ds-hero__scroll-hint {
     position: absolute;
     bottom: 1.75rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 20;
-    color: rgba(255,255,255,0.35);
-    font-size: 0.8rem;
-    animation: ds-bounce 2.2s ease-in-out infinite;
-    pointer-events: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 1.1rem 0.6rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.78rem;
+    text-decoration: none;
+    background: rgba(10,10,10,0.45);
+    border: 1px solid rgba(201,168,76,0.45);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
+    animation: ds-bounce 2.4s ease-in-out infinite;
+    transition: color 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.ds-hero__scroll-hint:hover,
+.ds-hero__scroll-hint:focus-visible {
+    color: var(--gold);
+    background: rgba(10,10,10,0.7);
+    border-color: var(--gold);
+    box-shadow: 0 0 24px rgba(201,168,76,0.25);
+    outline: none;
+}
+.ds-hero__scroll-hint-text {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.ds-hero__scroll-hint i {
+    font-size: 0.7rem;
+    line-height: 1;
 }
 @keyframes ds-bounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(7px); }
+    50% { transform: translateX(-50%) translateY(6px); }
 }
 
 /* Mobile dots */
@@ -946,7 +979,13 @@ h1, h2, h3, h4, h5, h6 {
     }
     .ds-panel__title-short { display: none; }
     .ds-panels__brand-center { display: none; }
-    .ds-hero__scroll-hint { display: none; }
+    /* Scroll hint mobilde de görünür — dots'ın hemen üstünde */
+    .ds-hero__scroll-hint {
+        display: inline-flex;
+        bottom: 3.5rem;
+        padding: 0.5rem 0.95rem 0.55rem;
+    }
+    .ds-hero__scroll-hint-text { font-size: 0.62rem; letter-spacing: 0.18em; }
     .ds-panels__dots { display: flex; }
     .ds-panel__tint { opacity: 0.82 !important; }
     .ds-panel__title { font-size: 2rem; }
